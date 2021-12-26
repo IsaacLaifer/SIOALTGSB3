@@ -90,7 +90,7 @@ public class FonctionsMetier implements IMetier
 
     @Override
     public ArrayList<Activite> getAllActivite() {
-         ArrayList<Activite>mesActivites = new ArrayList <Activite>();
+        ArrayList<Activite>mesActivites = new ArrayList <Activite>();
         try {
             maCnx=ConnexionBdd.getCnx();
             //on ecrit dans le ps la requete
@@ -127,9 +127,8 @@ public class FonctionsMetier implements IMetier
         ArrayList<Specialite>mesSpecialites = new ArrayList<Specialite>();
         try {
         maCnx=ConnexionBdd.getCnx();
-          ps= maCnx.prepareStatement("SELECT SPE_CODE , SPE_LIBELLE FROM SPECIALITE INNER JOIN posseder on specialite.SPE_CODE = posseder.codeSpe where pra_num ="+unNum);
+        ps= maCnx.prepareStatement("SELECT SPE_CODE , SPE_LIBELLE FROM SPECIALITE INNER JOIN posseder on specialite.SPE_CODE = posseder.codeSpe where pra_num ="+unNum);
         rs=ps.executeQuery(); 
-        rs=ps.executeQuery();
             while(rs.next())
             {
                 Specialite s = new Specialite((rs.getInt(1)),rs.getString(2));
@@ -168,6 +167,26 @@ public class FonctionsMetier implements IMetier
         } catch (SQLException ex) {
             Logger.getLogger(FonctionsMetier.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    @Override
+    public ArrayList<TypeCode> getAllTypeCode() {
+        ArrayList<TypeCode>mesTypeCode = new ArrayList <TypeCode>();
+        try {
+            maCnx=ConnexionBdd.getCnx();
+            //on ecrit dans le ps la requete
+            ps= maCnx.prepareStatement("select TYP_CODE, TYP_LIBELLE from type_praticien");
+            rs=ps.executeQuery();
+            while(rs.next())
+            {
+                TypeCode tc = new TypeCode((rs.getInt(1)),rs.getString(2));
+                mesTypeCode.add(tc);
+            }
+           
+        } catch (SQLException ex) {
+            Logger.getLogger(FonctionsMetier.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return mesTypeCode; 
     }
     
     

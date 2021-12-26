@@ -20,6 +20,8 @@ public interface IMetier
     
     public ArrayList<Activite>getAllActivite();
     
+    public ArrayList<TypeCode>getAllTypeCode();
+    
     /* INSERER */
     public void insererSpecialite(int spe_code,String libelle);
     

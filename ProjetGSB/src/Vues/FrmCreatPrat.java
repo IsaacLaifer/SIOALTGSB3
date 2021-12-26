@@ -7,6 +7,7 @@ package Vues;
 
 import Entity.ConnexionBdd;
 import Entity.FonctionsMetier;
+import Model.ModelTypeCode;
 
 /**
  *
@@ -15,6 +16,7 @@ import Entity.FonctionsMetier;
 public class FrmCreatPrat extends javax.swing.JFrame {
 
     FonctionsMetier fm;
+    ModelTypeCode mdlTypeCode;
     
     /**
      * Creates new form FrmCreatPrat
@@ -52,6 +54,10 @@ public class FrmCreatPrat extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         btnInsererPrat = new javax.swing.JButton();
         lblAccueilMenu = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblTypeCode = new javax.swing.JTable();
+        lblErreur = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(51, 153, 255));
@@ -104,7 +110,7 @@ public class FrmCreatPrat extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel9.setText("Type du praticien");
 
-        btnInsererPrat.setBackground(new java.awt.Color(255, 255, 255));
+        btnInsererPrat.setBackground(new java.awt.Color(0, 0, 255));
         btnInsererPrat.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnInsererPrat.setText("INSERER");
         btnInsererPrat.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -121,15 +127,38 @@ public class FrmCreatPrat extends javax.swing.JFrame {
             }
         });
 
+        tblTypeCode.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        tblTypeCode.setGridColor(new java.awt.Color(255, 0, 0));
+        tblTypeCode.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblTypeCodeMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tblTypeCode);
+
+        lblErreur.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblErreur.setForeground(new java.awt.Color(255, 0, 0));
+        lblErreur.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setText("Liste des type code");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtAdressePrat, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
+                    .addComponent(txtAdressePrat)
                     .addComponent(txtNomPrat)
                     .addComponent(txtPrenomPrat)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -148,12 +177,29 @@ public class FrmCreatPrat extends javax.swing.JFrame {
                     .addComponent(txtNotePrat)
                     .addComponent(jLabel6)
                     .addComponent(txtTypePrat))
-                .addGap(330, 330, 330))
-            .addComponent(lblAccueilMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(26, 26, 26)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 284, Short.MAX_VALUE))
+                .addGap(20, 20, 20))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 745, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(161, 161, 161)
-                .addComponent(btnInsererPrat, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblErreur, javax.swing.GroupLayout.PREFERRED_SIZE, 732, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(160, 160, 160)
+                                .addComponent(btnInsererPrat, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(lblAccueilMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 733, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -163,48 +209,54 @@ public class FrmCreatPrat extends javax.swing.JFrame {
                 .addGap(55, 55, 55)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtCodePostalPrat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtNumPrat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(55, 55, 55)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(txtNumPrat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(55, 55, 55)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtPrenomPrat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtVillePrat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(55, 55, 55)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtNomPrat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtNotePrat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(55, 55, 55)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel8)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtAdressePrat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel9)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtTypePrat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel5)
+                        .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtPrenomPrat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtVillePrat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(55, 55, 55)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtNomPrat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtNotePrat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(53, 53, 53)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtAdressePrat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel9)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtTypePrat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(82, 82, 82)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtCodePostalPrat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel10))
+                        .addGap(35, 35, 35)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(28, 28, 28)
+                .addComponent(lblErreur, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(btnInsererPrat)
-                .addGap(38, 38, 38)
+                .addGap(30, 30, 30)
                 .addComponent(lblAccueilMenu)
-                .addContainerGap(75, Short.MAX_VALUE))
+                .addContainerGap(94, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -227,11 +279,14 @@ public class FrmCreatPrat extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-
         ConnexionBdd cnx = new ConnexionBdd(); 
         fm = new FonctionsMetier();
         int idLastPrat = fm.getLastIdPraticien();
         txtNumPrat.setText(String.valueOf(idLastPrat));
+        
+        mdlTypeCode = new ModelTypeCode();
+        mdlTypeCode.LoadTypeCode(fm.getAllTypeCode());
+        tblTypeCode.setModel(mdlTypeCode);
     }//GEN-LAST:event_formWindowOpened
 
     private void txtPrenomPratActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrenomPratActionPerformed
@@ -241,12 +296,33 @@ public class FrmCreatPrat extends javax.swing.JFrame {
     private void btnInsererPratMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInsererPratMouseClicked
         ConnexionBdd cnx = new ConnexionBdd();
         fm = new FonctionsMetier();
+        
+        if(txtPrenomPrat.getText().compareTo("")==0){
+            lblErreur.setText("Entrer un prénom");
+        }else if(txtNomPrat.getText().compareTo("")==0){
+            lblErreur.setText("Entrer un nom");
+        }else if(txtAdressePrat.getText().compareTo("")==0){
+            lblErreur.setText("Entrer une adresse");
+        }else if(txtCodePostalPrat.getText().compareTo("")==0){
+            lblErreur.setText("Entrer un code postal");
+        }else if(txtVillePrat.getText().compareTo("")==0){
+            lblErreur.setText("Entrer la ville");
+        }else if(txtNotePrat.getText().compareTo("")==0){
+            lblErreur.setText("Entrer la note");
+        }else if(txtTypePrat.getText().compareTo("")==0){
+            lblErreur.setText("Entrer le type");
+        }
+        
+        else{
         String TP = txtTypePrat.getText();
         String N = txtNotePrat.getText();
         double notePrat = Double.parseDouble(N);
         int typePrat = Integer.parseInt(TP);
         int idLastPrat = fm.getLastIdPraticien();
         fm.InsererPraticien(idLastPrat,txtNomPrat.getText(),txtPrenomPrat.getText(),txtAdressePrat.getText(),txtCodePostalPrat.getText(),txtVillePrat.getText(),notePrat,typePrat);
+      
+        }
+        
     }//GEN-LAST:event_btnInsererPratMouseClicked
 
     private void lblAccueilMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAccueilMenuMouseClicked
@@ -254,6 +330,11 @@ public class FrmCreatPrat extends javax.swing.JFrame {
         frmAccueilPrat frmAccPrat = new frmAccueilPrat();
         frmAccPrat.setVisible(true);
     }//GEN-LAST:event_lblAccueilMenuMouseClicked
+
+    private void tblTypeCodeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblTypeCodeMouseClicked
+        String typeCode = tblTypeCode.getValueAt(tblTypeCode.getSelectedRow(),0).toString();
+        txtTypePrat.setText(typeCode);
+    }//GEN-LAST:event_tblTypeCodeMouseClicked
 
     /**
      * @param args the command line arguments
@@ -293,6 +374,7 @@ public class FrmCreatPrat extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnInsererPrat;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -302,7 +384,10 @@ public class FrmCreatPrat extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblAccueilMenu;
+    private javax.swing.JLabel lblErreur;
+    private javax.swing.JTable tblTypeCode;
     private javax.swing.JTextField txtAdressePrat;
     private javax.swing.JTextField txtCodePostalPrat;
     private javax.swing.JTextField txtNomPrat;
