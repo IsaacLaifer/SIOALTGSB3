@@ -29,6 +29,11 @@ public class Praticien {
         coefnotPraticien = unNote;
         typPraticien = unTyp;
     }
+    public Praticien(int unNum, String unNom, String unPrenom){
+        numPraticien = unNum;
+        nomPraticien = unNom;
+        prenomPraticien = unPrenom;
+    }
 
     /**
      * @return the numPraticien

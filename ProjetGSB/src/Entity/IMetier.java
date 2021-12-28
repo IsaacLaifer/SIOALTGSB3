@@ -24,7 +24,9 @@ public interface IMetier
     
     public ArrayList<Specialite>getAllNameSpe();
     
+    public ArrayList<Activite>getAllActivLieuDate();
     
+    public ArrayList<Praticien>getAllIdNomPrenomPrat();
     
     /* INSERER */
     public void insererSpecialite(int spe_code,String libelle);

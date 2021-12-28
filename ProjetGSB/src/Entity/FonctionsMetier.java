@@ -94,7 +94,7 @@ public class FonctionsMetier implements IMetier
         try {
             maCnx=ConnexionBdd.getCnx();
             //on ecrit dans le ps la requete
-            ps= maCnx.prepareStatement("select AC_NUM, AC_LIEU, AC_THEME, AC_MOTIF from activite_compl");
+            ps= maCnx.prepareStatement("select AC_NUM, AC_DATE, AC_LIEU, AC_THEME, AC_MOTIF from activite_compl");
             
             rs=ps.executeQuery();
             while(rs.next())
@@ -218,5 +218,41 @@ public class FonctionsMetier implements IMetier
         }
         return mesNomSpecialites;
     } 
+
+    @Override
+    public ArrayList<Activite> getAllActivLieuDate() {
+        ArrayList<Activite>mesLieuDateActivite = new ArrayList<>();
+        try { 
+            maCnx = ConnexionBdd.getCnx();
+            ps = maCnx.prepareStatement("SELECT AC_NUM, AC_DATE, AC_LIEU from activite_compl");
+            rs = ps.executeQuery();
+            
+            while(rs.next()){
+                Activite adl = new Activite(rs.getInt(1),rs.getString(2),rs.getString(3));
+                mesLieuDateActivite.add(adl);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(FonctionsMetier.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return mesLieuDateActivite;
+    }
+
+    @Override
+    public ArrayList<Praticien> getAllIdNomPrenomPrat() {
+        ArrayList<Praticien>mesIdNomPrenomPrat = new ArrayList<>();
+        try {
+            maCnx = ConnexionBdd.getCnx();
+            ps = maCnx.prepareStatement("SELECT PRA_NUM,PRA_NOM,PRA_PRENOM from praticien");
+            rs= ps.executeQuery();
+            
+            while(rs.next()){
+                Praticien pinp = new Praticien(rs.getInt(1),rs.getString(2),rs.getString(3));
+                mesIdNomPrenomPrat.add(pinp);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(FonctionsMetier.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return mesIdNomPrenomPrat;
+    }
     
 }
