@@ -200,6 +200,23 @@ public class FonctionsMetier implements IMetier
             Logger.getLogger(FonctionsMetier.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
+    @Override
+    public ArrayList<Specialite> getAllNameSpe() {
+        ArrayList<Specialite>mesNomSpecialites = new ArrayList<>();
+        try {
+            maCnx = ConnexionBdd.getCnx();
+            ps = maCnx.prepareStatement("SELECT SPE_LIBELLE from specialite");
+            rs = ps.executeQuery();
+            
+            while(rs.next()){
+                Specialite ns = new Specialite(rs.getString(1));
+                mesNomSpecialites.add(ns);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(FonctionsMetier.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return mesNomSpecialites;
+    } 
     
 }
