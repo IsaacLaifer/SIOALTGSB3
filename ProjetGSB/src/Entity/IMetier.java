@@ -18,6 +18,8 @@ public interface IMetier
     
     public ArrayList<Specialite>getAllSpecialiteByPraNum(int unNum);
     
+    public ArrayList<Activite>getAllActiviteByPraNum(int unNum);
+    
     public ArrayList<Activite>getAllActivite();
     
     public ArrayList<TypeCode>getAllTypeCode();

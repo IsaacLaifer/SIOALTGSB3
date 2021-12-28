@@ -254,5 +254,27 @@ public class FonctionsMetier implements IMetier
         }
         return mesIdNomPrenomPrat;
     }
+
+    @Override
+    public ArrayList<Activite> getAllActiviteByPraNum(int unNum) {
+        
+        ArrayList<Activite>mesActiviteByNum = new ArrayList<>();
+        
+        try {
+            maCnx = ConnexionBdd.getCnx();
+            ps = maCnx.prepareStatement("SELECT AC_NUM, AC_DATE , AC_LIEU  FROM activite_compl INNER JOIN praticien INNER JOIN inviter ON activite_compl.AC_NUM = inviter.AC_NUMERO WHERE inviter.PRA_NUMERO = praticien.PRA_NUM AND praticien.PRA_NUM ="+unNum);
+            rs = ps.executeQuery();
+            
+            while(rs.next())
+            {
+                Activite andl = new Activite((rs.getInt(1)),rs.getString(2),rs.getString(3));
+                mesActiviteByNum.add(andl);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(FonctionsMetier.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return mesActiviteByNum;
+    }
     
 }
