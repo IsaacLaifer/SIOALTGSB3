@@ -27,6 +27,9 @@ public interface IMetier
     
     public void InsererPraticien(int num, String nom, String prenom, String adresse, String codePostal, String ville, double Note, int typeCode);
     
+    /* SUPPRIMER */
+    
+    public void deleteSpecialitePraticien(int pra_num , int spe_code);
     /* AUTRES */
     public int getLastIdPraticien();
 }

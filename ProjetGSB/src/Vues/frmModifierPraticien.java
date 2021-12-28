@@ -41,6 +41,8 @@ public class frmModifierPraticien extends javax.swing.JFrame {
         lblConfirm = new javax.swing.JLabel();
         lblOui = new javax.swing.JLabel();
         lblNon = new javax.swing.JLabel();
+        lblFinish = new javax.swing.JLabel();
+        lblActualiser = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -107,6 +109,21 @@ public class frmModifierPraticien extends javax.swing.JFrame {
         lblNon.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         lblNon.setForeground(new java.awt.Color(255, 0, 0));
         lblNon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblNon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblNonMouseClicked(evt);
+            }
+        });
+
+        lblFinish.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblFinish.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        lblActualiser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/actualiserLogo.png"))); // NOI18N
+        lblActualiser.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblActualiserMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -115,21 +132,29 @@ public class frmModifierPraticien extends javax.swing.JFrame {
             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 699, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(149, 149, 149)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane2)
-                            .addComponent(lblConfirm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(lblOui, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblNon, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(24, 24, 24)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 699, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(149, 149, 149)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jScrollPane2)
+                                    .addComponent(lblConfirm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(lblFinish, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(lblActualiser)
+                .addGap(137, 137, 137))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -140,7 +165,9 @@ public class frmModifierPraticien extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
                 .addComponent(jLabel2)
-                .addGap(26, 26, 26)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblActualiser, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -148,7 +175,9 @@ public class frmModifierPraticien extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblNon, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblOui, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(142, 142, 142))
+                .addGap(18, 18, 18)
+                .addComponent(lblFinish, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(99, 99, 99))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -196,8 +225,31 @@ public class frmModifierPraticien extends javax.swing.JFrame {
     }//GEN-LAST:event_tblSpecialiteMouseClicked
 
     private void lblOuiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblOuiMouseClicked
-        // TODO add your handling code here:
+        fm = new FonctionsMetier();
+        cnx = new ConnexionBdd();
+        
+        int speCodeDelete = Integer.parseInt(tblSpecialite.getValueAt(tblSpecialite.getSelectedRow(),0).toString());
+        int praNum = Integer.parseInt(tblPraticien.getValueAt(tblPraticien.getSelectedRow(),0).toString());
+        
+        fm.deleteSpecialitePraticien(praNum, speCodeDelete);
+        
+        /*this.setVisible(false);
+        frmModifierPraticien frmModifPrat = new frmModifierPraticien();
+        frmModifPrat.setVisible(true); */
+        
+        lblFinish.setText("Modification effectuer.");
+        
     }//GEN-LAST:event_lblOuiMouseClicked
+
+    private void lblNonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNonMouseClicked
+        lblFinish.setText("Modification annuler");
+    }//GEN-LAST:event_lblNonMouseClicked
+
+    private void lblActualiserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblActualiserMouseClicked
+         this.setVisible(false);
+        frmModifierPraticien frmModifPrat = new frmModifierPraticien();
+        frmModifPrat.setVisible(true);
+    }//GEN-LAST:event_lblActualiserMouseClicked
 
     /**
      * @param args the command line arguments
@@ -240,7 +292,9 @@ public class frmModifierPraticien extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lblActualiser;
     private javax.swing.JLabel lblConfirm;
+    private javax.swing.JLabel lblFinish;
     private javax.swing.JLabel lblNon;
     private javax.swing.JLabel lblOui;
     private javax.swing.JTable tblPraticien;

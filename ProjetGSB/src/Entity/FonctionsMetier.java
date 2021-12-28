@@ -52,7 +52,7 @@ public class FonctionsMetier implements IMetier
         try {
             maCnx=ConnexionBdd.getCnx();
             //on ecrit dans le ps la requete
-            ps= maCnx.prepareStatement("select PRA_NUM,PRA_NOM,PRA_PRENOM,PRA_ADRESSE,PRA_CP,PRA_VILLE,PRA_COEFNOTORIETE,tc from praticien");
+            ps= maCnx.prepareStatement("select PRA_NUM,PRA_NOM,PRA_PRENOM,PRA_ADRESSE,PRA_CP,PRA_VILLE,PRA_COEFNOTORIETE,typeCode from praticien");
             
             rs=ps.executeQuery();
             while(rs.next())
@@ -161,7 +161,7 @@ public class FonctionsMetier implements IMetier
     public void InsererPraticien(int num, String nom, String prenom, String adresse, String codePostal, String ville, double note, int typeCode) {
         try {
             maCnx=ConnexionBdd.getCnx();
-            String maSQL = "INSERT INTO praticien(PRA_NUM,PRA_NOM,PRA_PRENOM,PRA_ADRESSE,PRA_CP,PRA_VILLE,PRA_COEFNOTORIETE,tc) VALUES ('"+num+"','"+nom+"','"+prenom+"','"+adresse+"','"+codePostal+"','"+ville+"','"+note+"','"+typeCode+"')";
+            String maSQL = "INSERT INTO praticien(PRA_NUM,PRA_NOM,PRA_PRENOM,PRA_ADRESSE,PRA_CP,PRA_VILLE,PRA_COEFNOTORIETE,typeCode) VALUES ('"+num+"','"+nom+"','"+prenom+"','"+adresse+"','"+codePostal+"','"+ville+"','"+note+"','"+typeCode+"')";
             ps= maCnx.prepareStatement(maSQL);
             ps.executeUpdate();
         } catch (SQLException ex) {
@@ -187,6 +187,18 @@ public class FonctionsMetier implements IMetier
             Logger.getLogger(FonctionsMetier.class.getName()).log(Level.SEVERE, null, ex);
         }
         return mesTypeCode; 
+    }
+
+    @Override
+    public void deleteSpecialitePraticien(int pra_num, int spe_code) {
+        try {
+            maCnx=ConnexionBdd.getCnx();
+            String maSQL = "DELETE FROM  posseder where PRA_NUM = '"+pra_num+"' AND codeSpe ='"+spe_code+"'";
+            ps= maCnx.prepareStatement(maSQL);
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(FonctionsMetier.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     
