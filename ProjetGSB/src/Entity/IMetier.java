@@ -18,15 +18,26 @@ public interface IMetier
     
     public ArrayList<Specialite>getAllSpecialiteByPraNum(int unNum);
     
+    public ArrayList<Activite>getAllActiviteByPraNum(int unNum);
+    
     public ArrayList<Activite>getAllActivite();
     
     public ArrayList<TypeCode>getAllTypeCode();
+    
+    public ArrayList<Specialite>getAllNameSpe();
+    
+    public ArrayList<Activite>getAllActivLieuDate();
+    
+    public ArrayList<Praticien>getAllIdNomPrenomPrat();
     
     /* INSERER */
     public void insererSpecialite(int spe_code,String libelle);
     
     public void InsererPraticien(int num, String nom, String prenom, String adresse, String codePostal, String ville, double Note, int typeCode);
     
+    /* SUPPRIMER */
+    
+    public void deleteSpecialitePraticien(int pra_num , int spe_code);
     /* AUTRES */
     public int getLastIdPraticien();
 }

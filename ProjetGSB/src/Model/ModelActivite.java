@@ -39,13 +39,23 @@ public class ModelActivite extends AbstractTableModel{
         return nomsColonnes[numColonne];
     }
     
-     public void LoadDatasActivite(ArrayList<Activite>desActivites){
+    public void LoadDatasActivite(ArrayList<Activite>desActivites){
         nomsColonnes = new String[]{"num","date","lieu","theme","motif"};
         rows = new Vector<String[]>();
         
         for (Activite a  : desActivites){
-             rows.add(new String[] {String.valueOf(a.getNumActivite()),a.getDateActivite(),a.getLieuActivite(),a.getThemeActivite(),a.getMotifActivite()});
+            rows.add(new String[] {String.valueOf(a.getNumActivite()),a.getDateActivite(),a.getLieuActivite(),a.getThemeActivite(),a.getMotifActivite()});
         }
         fireTableDataChanged();
-}
+    }
+    
+    public void LoadActiviteDateLieu(ArrayList<Activite>desActivites){
+        nomsColonnes = new String[]{"ID","Date","Lieu"};
+        rows = new Vector<String[]>();
+        
+        for (Activite adl : desActivites){
+            rows.add(new String[] {String.valueOf(adl.getNumActivite()),adl.getDateActivite(),adl.getLieuActivite()});
+        }
+        fireTableDataChanged();
+    }
 }

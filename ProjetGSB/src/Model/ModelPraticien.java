@@ -49,4 +49,14 @@ public class ModelPraticien extends AbstractTableModel {
         fireTableDataChanged();
     }
     
+    public void LoadIdNomPrenomPrat(ArrayList<Praticien>desIdNomPrenomPrat){
+        nomsColonnes = new String[]{"ID","NOM","PRENOM"};
+        rows = new Vector<String[]>();
+        
+        for (Praticien p : desIdNomPrenomPrat){
+            rows.add(new String[]{String.valueOf(p.getNumPraticien()),p.getNomPraticien(),p.getPrenomPraticien()});
+        }
+        fireTableDataChanged();
+    }
+    
 }

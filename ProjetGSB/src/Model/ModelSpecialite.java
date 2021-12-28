@@ -63,6 +63,16 @@ public class ModelSpecialite extends AbstractTableModel{
         }
         fireTableDataChanged();
     }
+    
+    public void LoadNomSpe(ArrayList<Specialite>allSpeNom){
+        nomsColonnes= new String[]{"NOM"};
+        rows = new Vector<>();
+        
+        for(Specialite sn : allSpeNom){
+            rows.add(new String[]{String.valueOf(sn.getSpeLibelle())});
+        }
+        fireTableDataChanged();
+    }
 }
 
 
