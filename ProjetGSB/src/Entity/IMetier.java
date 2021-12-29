@@ -11,7 +11,7 @@ public interface IMetier
 {
     public Utilisateur VerifierIdentifiants (String login,String mdp);
     
-    public ArrayList<Activite> VerifierActivite ();
+    public ArrayList<Activite> VerifierActivite (int praNum, int acNum);
     
     /* AFFICHER */
     public ArrayList<Praticien>getAllPraticiens();

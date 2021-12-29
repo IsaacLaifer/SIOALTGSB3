@@ -287,5 +287,27 @@ public class FonctionsMetier implements IMetier
             Logger.getLogger(FonctionsMetier.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    @Override
+    public ArrayList<Activite> VerifierActivite(int praNum, int acNum) {
+         ArrayList<Activite>mesActivites = new ArrayList<>();
+        try {
+            
+            maCnx = ConnexionBdd.getCnx();
+            ps = maCnx.prepareStatement("SELECT AC_NUM, AC_DATE , AC_LIEU , AC_THEME  FROM activite_compl INNER JOIN praticien INNER JOIN inviter ON activite_compl.AC_NUM = inviter.AC_NUMERO WHERE inviter.PRA_NUMERO = praticien.PRA_NUM AND praticien.PRA_NUM ='"+praNum+"' AND inviter.AC_NUMERO ='"+acNum+"'");
+            rs = ps.executeQuery();
+            
+             while(rs.next())
+            {
+                Activite andl = new Activite((rs.getInt(1)),rs.getString(2),rs.getString(3), rs.getString(4));
+                mesActivites.add(andl);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(FonctionsMetier.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return mesActivites;
+    }
+
+   
     
 }
