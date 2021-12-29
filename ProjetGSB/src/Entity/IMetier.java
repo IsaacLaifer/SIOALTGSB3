@@ -11,6 +11,8 @@ public interface IMetier
 {
     public Utilisateur VerifierIdentifiants (String login,String mdp);
     
+    public ArrayList<Activite> VerifierActivite ();
+    
     /* AFFICHER */
     public ArrayList<Praticien>getAllPraticiens();
     
@@ -35,6 +37,7 @@ public interface IMetier
     
     public void InsererPraticien(int num, String nom, String prenom, String adresse, String codePostal, String ville, double Note, int typeCode);
     
+    public void InsererActivitie(int activNum, int praNumero, int speOn);
     /* SUPPRIMER */
     
     public void deleteSpecialitePraticien(int pra_num , int spe_code);

@@ -19,10 +19,11 @@ public Activite(int unNumActivite, String unDate, String unLieu , String unTheme
     themeActivite = unTheme;
     motifActivite= unMotif;
 }
-public Activite(int unNum,String unDate, String unLieu){
+public Activite(int unNum,String unDate, String unLieu, String unTheme){
     numActivite = unNum;
     dateActivite = unDate;
     lieuActivite = unLieu;
+    themeActivite = unTheme;
 }
 
     /**
