@@ -212,14 +212,6 @@ public class frmAddActivite extends javax.swing.JFrame {
         int acNum = Integer.parseInt(tblActivite.getValueAt(tblActivite.getSelectedRow(),0).toString());
         int praNum = Integer.parseInt(tblPrat.getValueAt(tblPrat.getSelectedRow(),0).toString());
         
-        
-        ArrayList<Activite> myList = fm.getAllActiviteByPraNum(praNum);
-        
-        if(myList.isEmpty()){
-            txtOui.setText("LISTE VIDE");
-        }else{
-            txtLog.setText("LISTE REMPLIS"+ myList);
-        }
     }//GEN-LAST:event_tblActiviteMouseClicked
 
     /**
