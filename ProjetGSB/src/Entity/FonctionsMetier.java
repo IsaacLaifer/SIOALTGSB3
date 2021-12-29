@@ -224,11 +224,11 @@ public class FonctionsMetier implements IMetier
         ArrayList<Activite>mesLieuDateActivite = new ArrayList<>();
         try { 
             maCnx = ConnexionBdd.getCnx();
-            ps = maCnx.prepareStatement("SELECT AC_NUM, AC_DATE, AC_LIEU from activite_compl");
+            ps = maCnx.prepareStatement("SELECT AC_NUM, AC_DATE, AC_LIEU, AC_THEME from activite_compl");
             rs = ps.executeQuery();
             
             while(rs.next()){
-                Activite adl = new Activite(rs.getInt(1),rs.getString(2),rs.getString(3));
+                Activite adl = new Activite(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4));
                 mesLieuDateActivite.add(adl);
             }
         } catch (SQLException ex) {
@@ -262,12 +262,12 @@ public class FonctionsMetier implements IMetier
         
         try {
             maCnx = ConnexionBdd.getCnx();
-            ps = maCnx.prepareStatement("SELECT AC_NUM, AC_DATE , AC_LIEU  FROM activite_compl INNER JOIN praticien INNER JOIN inviter ON activite_compl.AC_NUM = inviter.AC_NUMERO WHERE inviter.PRA_NUMERO = praticien.PRA_NUM AND praticien.PRA_NUM ="+unNum);
+            ps = maCnx.prepareStatement("SELECT AC_NUM, AC_DATE , AC_LIEU , AC_THEME  FROM activite_compl INNER JOIN praticien INNER JOIN inviter ON activite_compl.AC_NUM = inviter.AC_NUMERO WHERE inviter.PRA_NUMERO = praticien.PRA_NUM AND praticien.PRA_NUM ="+unNum);
             rs = ps.executeQuery();
             
             while(rs.next())
             {
-                Activite andl = new Activite((rs.getInt(1)),rs.getString(2),rs.getString(3));
+                Activite andl = new Activite((rs.getInt(1)),rs.getString(2),rs.getString(3), rs.getString(4));
                 mesActiviteByNum.add(andl);
             }
         } catch (SQLException ex) {
@@ -276,5 +276,38 @@ public class FonctionsMetier implements IMetier
         
         return mesActiviteByNum;
     }
+
+    @Override
+    public void InsererActivitie(int activNum, int praNumero, int speOn) {
+        try {
+            maCnx=ConnexionBdd.getCnx(); //initialiser la requete
+            ps= maCnx.prepareStatement("INSERT INTO inviter(AC_NUMERO,PRA_NUMERO,SPECIALISTEON) VALUES ('"+activNum+"','"+praNumero+"','"+speOn+"')");
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(FonctionsMetier.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @Override
+    public ArrayList<Activite> VerifierActivite(int praNum, int acNum) {
+         ArrayList<Activite>mesActivites = new ArrayList<>();
+        try {
+            
+            maCnx = ConnexionBdd.getCnx();
+            ps = maCnx.prepareStatement("SELECT AC_NUM, AC_DATE , AC_LIEU , AC_THEME  FROM activite_compl INNER JOIN praticien INNER JOIN inviter ON activite_compl.AC_NUM = inviter.AC_NUMERO WHERE inviter.PRA_NUMERO = praticien.PRA_NUM AND praticien.PRA_NUM ='"+praNum+"' AND inviter.AC_NUMERO ='"+acNum+"'");
+            rs = ps.executeQuery();
+            
+             while(rs.next())
+            {
+                Activite andl = new Activite((rs.getInt(1)),rs.getString(2),rs.getString(3), rs.getString(4));
+                mesActivites.add(andl);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(FonctionsMetier.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return mesActivites;
+    }
+
+   
     
 }

@@ -50,11 +50,11 @@ public class ModelActivite extends AbstractTableModel{
     }
     
     public void LoadActiviteDateLieu(ArrayList<Activite>desActivites){
-        nomsColonnes = new String[]{"ID","Date","Lieu"};
+        nomsColonnes = new String[]{"ID","Date","Lieu","Theme"};
         rows = new Vector<String[]>();
         
         for (Activite adl : desActivites){
-            rows.add(new String[] {String.valueOf(adl.getNumActivite()),adl.getDateActivite(),adl.getLieuActivite()});
+            rows.add(new String[] {String.valueOf(adl.getNumActivite()),adl.getDateActivite(),adl.getLieuActivite(),adl.getThemeActivite()});
         }
         fireTableDataChanged();
     }

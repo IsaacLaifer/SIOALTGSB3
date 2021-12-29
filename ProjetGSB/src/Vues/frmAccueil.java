@@ -40,7 +40,6 @@ public class frmAccueil extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 0));
-        setPreferredSize(new java.awt.Dimension(745, 800));
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
@@ -73,6 +72,9 @@ public class frmAccueil extends javax.swing.JFrame {
 
         lblLogoActivite.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/calendarLogo.png"))); // NOI18N
         lblLogoActivite.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblLogoActiviteMouseClicked(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 lblLogoActiviteMousePressed(evt);
             }
@@ -182,7 +184,6 @@ public class frmAccueil extends javax.swing.JFrame {
         );
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
@@ -238,6 +239,12 @@ public class frmAccueil extends javax.swing.JFrame {
         frmAccueilPrat frmAccPrat = new frmAccueilPrat();
         frmAccPrat.setVisible(true);
     }//GEN-LAST:event_lblLogoPraticienMouseClicked
+
+    private void lblLogoActiviteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLogoActiviteMouseClicked
+       this.setVisible(false);
+       frmAccueilActiv frmAccActiv = new frmAccueilActiv();
+       frmAccActiv.setVisible(true);
+    }//GEN-LAST:event_lblLogoActiviteMouseClicked
 
     /**
      * @param args the command line arguments
