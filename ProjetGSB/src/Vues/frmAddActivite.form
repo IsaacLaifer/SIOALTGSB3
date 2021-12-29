@@ -208,6 +208,9 @@
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtOuiMouseClicked"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="txtNon">
           <Properties>
@@ -219,6 +222,9 @@
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtNonMouseClicked"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="txtLog">
           <Properties>

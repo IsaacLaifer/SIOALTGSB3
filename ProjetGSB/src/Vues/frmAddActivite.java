@@ -108,10 +108,20 @@ public class frmAddActivite extends javax.swing.JFrame {
         txtOui.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
         txtOui.setForeground(new java.awt.Color(0, 255, 0));
         txtOui.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtOui.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtOuiMouseClicked(evt);
+            }
+        });
 
         txtNon.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
         txtNon.setForeground(new java.awt.Color(255, 0, 0));
         txtNon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtNon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtNonMouseClicked(evt);
+            }
+        });
 
         txtLog.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
@@ -211,8 +221,34 @@ public class frmAddActivite extends javax.swing.JFrame {
         
         int acNum = Integer.parseInt(tblActivite.getValueAt(tblActivite.getSelectedRow(),0).toString());
         int praNum = Integer.parseInt(tblPrat.getValueAt(tblPrat.getSelectedRow(),0).toString());
+         ArrayList <Activite> act=fm.VerifierActivite(praNum, acNum);
+         if (act.isEmpty()){
+                txtOui.setText("oui");
+                txtNon.setText("non");
+         
+         
+         }
+        
         
     }//GEN-LAST:event_tblActiviteMouseClicked
+
+    private void txtOuiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtOuiMouseClicked
+         fm = new FonctionsMetier();
+        cnx = new ConnexionBdd();
+        
+        int acNum = Integer.parseInt(tblActivite.getValueAt(tblActivite.getSelectedRow(),0).toString());
+        int praNum = Integer.parseInt(tblPrat.getValueAt(tblPrat.getSelectedRow(),0).toString());
+        int speOn=1;
+    }//GEN-LAST:event_txtOuiMouseClicked
+
+    private void txtNonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNonMouseClicked
+         fm = new FonctionsMetier();
+        cnx = new ConnexionBdd();
+        
+        int acNum = Integer.parseInt(tblActivite.getValueAt(tblActivite.getSelectedRow(),0).toString());
+        int praNum = Integer.parseInt(tblPrat.getValueAt(tblPrat.getSelectedRow(),0).toString());
+        int speOn=0;
+    }//GEN-LAST:event_txtNonMouseClicked
 
     /**
      * @param args the command line arguments
