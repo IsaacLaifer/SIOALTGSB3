@@ -108,11 +108,22 @@ public class frmAddActivite extends javax.swing.JFrame {
         txtOui.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
         txtOui.setForeground(new java.awt.Color(0, 255, 0));
         txtOui.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtOui.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtOuiMouseClicked(evt);
+            }
+        });
 
         txtNon.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
         txtNon.setForeground(new java.awt.Color(255, 0, 0));
         txtNon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtNon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtNonMouseClicked(evt);
+            }
+        });
 
+        txtLog.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtLog.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -136,13 +147,10 @@ public class frmAddActivite extends javax.swing.JFrame {
                             .addComponent(jScrollPane2))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtLog, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(152, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(151, 151, 151))
+            .addComponent(txtLog, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -163,9 +171,9 @@ public class frmAddActivite extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtNon, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtOui, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(89, 89, 89)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
                 .addComponent(txtLog, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addGap(61, 61, 61))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -211,8 +219,37 @@ public class frmAddActivite extends javax.swing.JFrame {
         
         int acNum = Integer.parseInt(tblActivite.getValueAt(tblActivite.getSelectedRow(),0).toString());
         int praNum = Integer.parseInt(tblPrat.getValueAt(tblPrat.getSelectedRow(),0).toString());
+         ArrayList <Activite> act=fm.VerifierActivite(praNum, acNum);
+         if (act.isEmpty()){
+                txtLog.setText("");
+                txtOui.setText("oui");
+                txtNon.setText("non");
+         }else{
+             txtLog.setText("Le praticien a déjà cette activité");
+         }
+        
         
     }//GEN-LAST:event_tblActiviteMouseClicked
+
+    private void txtOuiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtOuiMouseClicked
+        fm = new FonctionsMetier();
+        cnx = new ConnexionBdd();
+        
+        int acNum = Integer.parseInt(tblActivite.getValueAt(tblActivite.getSelectedRow(),0).toString());
+        int praNum = Integer.parseInt(tblPrat.getValueAt(tblPrat.getSelectedRow(),0).toString());
+        int speOn=1;
+        fm.InsererActivitie(acNum, praNum, speOn);
+    }//GEN-LAST:event_txtOuiMouseClicked
+
+    private void txtNonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNonMouseClicked
+         fm = new FonctionsMetier();
+        cnx = new ConnexionBdd();
+        
+        int acNum = Integer.parseInt(tblActivite.getValueAt(tblActivite.getSelectedRow(),0).toString());
+        int praNum = Integer.parseInt(tblPrat.getValueAt(tblPrat.getSelectedRow(),0).toString());
+        int speOn=0;
+        fm.InsererActivitie(acNum, praNum, speOn);
+    }//GEN-LAST:event_txtNonMouseClicked
 
     /**
      * @param args the command line arguments

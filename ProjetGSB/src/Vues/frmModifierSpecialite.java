@@ -141,7 +141,7 @@ public class frmModifierSpecialite extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void tblPraticiensMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPraticiensMouseClicked
-          int numpraticien = Integer.parseInt(tblPraticiens.getValueAt(tblPraticiens.getSelectedRow(),0).toString());
+        int numpraticien = Integer.parseInt(tblPraticiens.getValueAt(tblPraticiens.getSelectedRow(),0).toString());
         fm = new FonctionsMetier();
         ModelSpecialite mdlSpecialite = new ModelSpecialite();
         
