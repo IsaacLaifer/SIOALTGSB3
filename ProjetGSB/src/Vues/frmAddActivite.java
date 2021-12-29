@@ -239,6 +239,7 @@ public class frmAddActivite extends javax.swing.JFrame {
         int acNum = Integer.parseInt(tblActivite.getValueAt(tblActivite.getSelectedRow(),0).toString());
         int praNum = Integer.parseInt(tblPrat.getValueAt(tblPrat.getSelectedRow(),0).toString());
         int speOn=1;
+        fm.InsererActivitie(acNum, praNum, speOn);
     }//GEN-LAST:event_txtOuiMouseClicked
 
     private void txtNonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNonMouseClicked
@@ -248,6 +249,7 @@ public class frmAddActivite extends javax.swing.JFrame {
         int acNum = Integer.parseInt(tblActivite.getValueAt(tblActivite.getSelectedRow(),0).toString());
         int praNum = Integer.parseInt(tblPrat.getValueAt(tblPrat.getSelectedRow(),0).toString());
         int speOn=0;
+        fm.InsererActivitie(acNum, praNum, speOn);
     }//GEN-LAST:event_txtNonMouseClicked
 
     /**
