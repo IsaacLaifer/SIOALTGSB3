@@ -224,9 +224,10 @@ public class frmAccueil extends javax.swing.JFrame {
     }//GEN-LAST:event_lblLogoStatsMouseReleased
 
     private void lblAccueilMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAccueilMenuMouseClicked
-        this.setVisible(false);
+       /* this.setVisible(false);
         frmAccueil frmAcc = new frmAccueil();
         frmAcc.setVisible(true);
+        */
     }//GEN-LAST:event_lblAccueilMenuMouseClicked
 
     private void lblLogoTaskMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLogoTaskMouseClicked
