@@ -143,7 +143,7 @@ public class FonctionsMetier implements IMetier
 
     @Override
     public int getLastIdPraticien() {
-               int idPrat = 0;
+        int idPrat = 0;
         try {
             maCnx=ConnexionBdd.getCnx();
             ps=maCnx.prepareStatement("SELECT max(pra_num) from praticien");
@@ -306,6 +306,22 @@ public class FonctionsMetier implements IMetier
             Logger.getLogger(FonctionsMetier.class.getName()).log(Level.SEVERE, null, ex);
         }
         return mesActivites;
+    }
+
+    @Override
+    public int getLastIdSpecialite() {
+        int idSpe = 0;
+        
+          try {
+              maCnx=ConnexionBdd.getCnx();
+              ps=maCnx.prepareStatement("SELECT max(SPE_CODE) from specialite");
+              rs=ps.executeQuery();
+              rs.next();
+              idSpe = rs.getInt(1) + 1;
+          } catch (SQLException ex) {
+              Logger.getLogger(FonctionsMetier.class.getName()).log(Level.SEVERE, null, ex);
+          }
+          return idSpe;        
     }
 
    
