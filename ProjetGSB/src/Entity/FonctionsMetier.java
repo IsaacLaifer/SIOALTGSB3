@@ -52,7 +52,7 @@ public class FonctionsMetier implements IMetier
         try {
             maCnx=ConnexionBdd.getCnx();
             //on ecrit dans le ps la requete
-            ps= maCnx.prepareStatement("select PRA_NUM,PRA_NOM,PRA_PRENOM,PRA_ADRESSE,PRA_CP,PRA_VILLE,PRA_COEFNOTORIETE,tc from praticien");
+            ps= maCnx.prepareStatement("select PRA_NUM,PRA_NOM,PRA_PRENOM,PRA_ADRESSE,PRA_CP,PRA_VILLE,PRA_COEFNOTORIETE,typeCode from praticien");
             
             rs=ps.executeQuery();
             while(rs.next())
@@ -90,11 +90,11 @@ public class FonctionsMetier implements IMetier
 
     @Override
     public ArrayList<Activite> getAllActivite() {
-         ArrayList<Activite>mesActivites = new ArrayList <Activite>();
+        ArrayList<Activite>mesActivites = new ArrayList <Activite>();
         try {
             maCnx=ConnexionBdd.getCnx();
             //on ecrit dans le ps la requete
-            ps= maCnx.prepareStatement("select AC_NUM, AC_LIEU, AC_THEME, AC_MOTIF from activite_compl");
+            ps= maCnx.prepareStatement("select AC_NUM, AC_DATE, AC_LIEU, AC_THEME, AC_MOTIF from activite_compl");
             
             rs=ps.executeQuery();
             while(rs.next())
@@ -127,9 +127,8 @@ public class FonctionsMetier implements IMetier
         ArrayList<Specialite>mesSpecialites = new ArrayList<Specialite>();
         try {
         maCnx=ConnexionBdd.getCnx();
-          ps= maCnx.prepareStatement("SELECT SPE_CODE , SPE_LIBELLE FROM SPECIALITE INNER JOIN posseder on specialite.SPE_CODE = posseder.codeSpe where pra_num ="+unNum);
+        ps= maCnx.prepareStatement("SELECT SPE_CODE , SPE_LIBELLE FROM SPECIALITE INNER JOIN posseder on specialite.SPE_CODE = posseder.codeSpe where pra_num ="+unNum);
         rs=ps.executeQuery(); 
-        rs=ps.executeQuery();
             while(rs.next())
             {
                 Specialite s = new Specialite((rs.getInt(1)),rs.getString(2));
@@ -144,7 +143,7 @@ public class FonctionsMetier implements IMetier
 
     @Override
     public int getLastIdPraticien() {
-               int idPrat = 0;
+        int idPrat = 0;
         try {
             maCnx=ConnexionBdd.getCnx();
             ps=maCnx.prepareStatement("SELECT max(pra_num) from praticien");
@@ -162,13 +161,169 @@ public class FonctionsMetier implements IMetier
     public void InsererPraticien(int num, String nom, String prenom, String adresse, String codePostal, String ville, double note, int typeCode) {
         try {
             maCnx=ConnexionBdd.getCnx();
-            String maSQL = "INSERT INTO praticien(PRA_NUM,PRA_NOM,PRA_PRENOM,PRA_ADRESSE,PRA_CP,PRA_VILLE,PRA_COEFNOTORIETE,tc) VALUES ('"+num+"','"+nom+"','"+prenom+"','"+adresse+"','"+codePostal+"','"+ville+"','"+note+"','"+typeCode+"')";
+            String maSQL = "INSERT INTO praticien(PRA_NUM,PRA_NOM,PRA_PRENOM,PRA_ADRESSE,PRA_CP,PRA_VILLE,PRA_COEFNOTORIETE,typeCode) VALUES ('"+num+"','"+nom+"','"+prenom+"','"+adresse+"','"+codePostal+"','"+ville+"','"+note+"','"+typeCode+"')";
             ps= maCnx.prepareStatement(maSQL);
             ps.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(FonctionsMetier.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
+    @Override
+    public ArrayList<TypeCode> getAllTypeCode() {
+        ArrayList<TypeCode>mesTypeCode = new ArrayList <TypeCode>();
+        try {
+            maCnx=ConnexionBdd.getCnx();
+            //on ecrit dans le ps la requete
+            ps= maCnx.prepareStatement("select TYP_CODE, TYP_LIBELLE from type_praticien");
+            rs=ps.executeQuery();
+            while(rs.next())
+            {
+                TypeCode tc = new TypeCode((rs.getInt(1)),rs.getString(2));
+                mesTypeCode.add(tc);
+            }
+           
+        } catch (SQLException ex) {
+            Logger.getLogger(FonctionsMetier.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return mesTypeCode; 
+    }
+
+    @Override
+    public void deleteSpecialitePraticien(int pra_num, int spe_code) {
+        try {
+            maCnx=ConnexionBdd.getCnx();
+            String maSQL = "DELETE FROM  posseder where PRA_NUM = '"+pra_num+"' AND codeSpe ='"+spe_code+"'";
+            ps= maCnx.prepareStatement(maSQL);
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(FonctionsMetier.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @Override
+    public ArrayList<Specialite> getAllNameSpe() {
+        ArrayList<Specialite>mesNomSpecialites = new ArrayList<>();
+        try {
+            maCnx = ConnexionBdd.getCnx();
+            ps = maCnx.prepareStatement("SELECT SPE_LIBELLE from specialite");
+            rs = ps.executeQuery();
+            
+            while(rs.next()){
+                Specialite ns = new Specialite(rs.getString(1));
+                mesNomSpecialites.add(ns);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(FonctionsMetier.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return mesNomSpecialites;
+    } 
+
+    @Override
+    public ArrayList<Activite> getAllActivLieuDate() {
+        ArrayList<Activite>mesLieuDateActivite = new ArrayList<>();
+        try { 
+            maCnx = ConnexionBdd.getCnx();
+            ps = maCnx.prepareStatement("SELECT AC_NUM, AC_DATE, AC_LIEU, AC_THEME from activite_compl");
+            rs = ps.executeQuery();
+            
+            while(rs.next()){
+                Activite adl = new Activite(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4));
+                mesLieuDateActivite.add(adl);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(FonctionsMetier.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return mesLieuDateActivite;
+    }
+
+    @Override
+    public ArrayList<Praticien> getAllIdNomPrenomPrat() {
+        ArrayList<Praticien>mesIdNomPrenomPrat = new ArrayList<>();
+        try {
+            maCnx = ConnexionBdd.getCnx();
+            ps = maCnx.prepareStatement("SELECT PRA_NUM,PRA_NOM,PRA_PRENOM from praticien");
+            rs= ps.executeQuery();
+            
+            while(rs.next()){
+                Praticien pinp = new Praticien(rs.getInt(1),rs.getString(2),rs.getString(3));
+                mesIdNomPrenomPrat.add(pinp);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(FonctionsMetier.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return mesIdNomPrenomPrat;
+    }
+
+    @Override
+    public ArrayList<Activite> getAllActiviteByPraNum(int unNum) {
+        
+        ArrayList<Activite>mesActiviteByNum = new ArrayList<>();
+        
+        try {
+            maCnx = ConnexionBdd.getCnx();
+            ps = maCnx.prepareStatement("SELECT AC_NUM, AC_DATE , AC_LIEU , AC_THEME  FROM activite_compl INNER JOIN praticien INNER JOIN inviter ON activite_compl.AC_NUM = inviter.AC_NUMERO WHERE inviter.PRA_NUMERO = praticien.PRA_NUM AND praticien.PRA_NUM ="+unNum);
+            rs = ps.executeQuery();
+            
+            while(rs.next())
+            {
+                Activite andl = new Activite((rs.getInt(1)),rs.getString(2),rs.getString(3), rs.getString(4));
+                mesActiviteByNum.add(andl);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(FonctionsMetier.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return mesActiviteByNum;
+    }
+
+    @Override
+    public void InsererActivitie(int activNum, int praNumero, int speOn) {
+        try {
+            maCnx=ConnexionBdd.getCnx(); //initialiser la requete
+            ps= maCnx.prepareStatement("INSERT INTO inviter(AC_NUMERO,PRA_NUMERO,SPECIALISTEON) VALUES ('"+activNum+"','"+praNumero+"','"+speOn+"')");
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(FonctionsMetier.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @Override
+    public ArrayList<Activite> VerifierActivite(int praNum, int acNum) {
+         ArrayList<Activite>mesActivites = new ArrayList<>();
+        try {
+            
+            maCnx = ConnexionBdd.getCnx();
+            ps = maCnx.prepareStatement("SELECT AC_NUM, AC_DATE , AC_LIEU , AC_THEME  FROM activite_compl INNER JOIN praticien INNER JOIN inviter ON activite_compl.AC_NUM = inviter.AC_NUMERO WHERE inviter.PRA_NUMERO = praticien.PRA_NUM AND praticien.PRA_NUM ='"+praNum+"' AND inviter.AC_NUMERO ='"+acNum+"'");
+            rs = ps.executeQuery();
+            
+             while(rs.next())
+            {
+                Activite andl = new Activite((rs.getInt(1)),rs.getString(2),rs.getString(3), rs.getString(4));
+                mesActivites.add(andl);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(FonctionsMetier.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return mesActivites;
+    }
+
+    @Override
+    public int getLastIdSpecialite() {
+        int idSpe = 0;
+        
+          try {
+              maCnx=ConnexionBdd.getCnx();
+              ps=maCnx.prepareStatement("SELECT max(SPE_CODE) from specialite");
+              rs=ps.executeQuery();
+              rs.next();
+              idSpe = rs.getInt(1) + 1;
+          } catch (SQLException ex) {
+              Logger.getLogger(FonctionsMetier.class.getName()).log(Level.SEVERE, null, ex);
+          }
+          return idSpe;        
+    }
+
+   
     
 }

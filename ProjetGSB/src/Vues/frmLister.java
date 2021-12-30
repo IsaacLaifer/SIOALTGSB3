@@ -4,15 +4,25 @@
  */
 package Vues;
 
+import Entity.Activite;
+import Entity.ConnexionBdd;
+import Entity.FonctionsMetier;
+import Model.ModelActivite;
+import Model.ModelPraticien;
+import Model.ModelSpecialite;
+import java.util.ArrayList;
+import javax.swing.ComboBoxModel;
+
 /**
  *
  * @author Admin
  */
 public class frmLister extends javax.swing.JFrame {
 
-    /**
-     * Creates new form frmLister
-     */
+    FonctionsMetier fm;
+    ModelPraticien mdlPraticien;
+    ConnexionBdd cnx;
+    
     public frmLister() {
         initComponents();
     }
@@ -26,23 +36,209 @@ public class frmLister extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        cbIntro = new javax.swing.JComboBox<>();
+        jLabel3 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblList = new javax.swing.JTable();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblPrat = new javax.swing.JTable();
+        lblAccueilMenu = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(755, 800));
+        setMinimumSize(new java.awt.Dimension(755, 800));
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
+
+        jPanel1.setBackground(new java.awt.Color(0, 204, 204));
+        jPanel1.setMaximumSize(new java.awt.Dimension(755, 800));
+        jPanel1.setMinimumSize(new java.awt.Dimension(755, 800));
+        jPanel1.setPreferredSize(new java.awt.Dimension(755, 800));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("LISTER");
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Que souhaitez-vous lister ?");
+
+        cbIntro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Activités", "Spécialités" }));
+        cbIntro.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbIntroItemStateChanged(evt);
+            }
+        });
+        cbIntro.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cbIntroMouseClicked(evt);
+            }
+        });
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("Pour quel praticien ?");
+
+        tblList.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane1.setViewportView(tblList);
+
+        tblPrat.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        tblPrat.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblPratMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(tblPrat);
+
+        lblAccueilMenu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblAccueilMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/homeLogo.png"))); // NOI18N
+        lblAccueilMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblAccueilMenuMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(134, 134, 134))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 158, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(cbIntro, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(313, 313, 313))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(135, 135, 135))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblAccueilMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap())))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(46, 46, 46)
+                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
+                .addComponent(cbIntro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel3)
+                .addGap(25, 25, 25)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(56, 56, 56)
+                .addComponent(lblAccueilMenu)
+                .addContainerGap(138, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 755, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 800, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+       fm = new FonctionsMetier();
+       cnx=new ConnexionBdd();    
+      
+       ModelActivite mdlActivite = new ModelActivite();
+       mdlActivite.LoadActiviteDateLieu(fm.getAllActivLieuDate());
+       tblList.setModel(mdlActivite);
+            
+       ModelPraticien mdlPrat = new ModelPraticien();
+       mdlPrat.LoadIdNomPrenomPrat(fm.getAllIdNomPrenomPrat());
+       tblPrat.setModel(mdlPrat);
+    }//GEN-LAST:event_formWindowOpened
+
+    private void cbIntroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cbIntroMouseClicked
+      
+    }//GEN-LAST:event_cbIntroMouseClicked
+
+    private void cbIntroItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbIntroItemStateChanged
+         if(cbIntro.getSelectedItem().toString()=="Spécialités"){
+            ModelSpecialite mdlSpe = new ModelSpecialite();
+            mdlSpe.LoadNomSpe(fm.getAllNameSpe());
+            tblList.setModel(mdlSpe);
+       }
+        if(cbIntro.getSelectedItem().toString()=="Activités"){
+            ModelActivite mdlActivite = new ModelActivite();
+            mdlActivite.LoadActiviteDateLieu(fm.getAllActivLieuDate());
+            tblList.setModel(mdlActivite);
+        }
+    }//GEN-LAST:event_cbIntroItemStateChanged
+
+    private void tblPratMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPratMouseClicked
+        
+        if(cbIntro.getSelectedItem().toString()=="Spécialités"){
+            int praNum = Integer.parseInt(tblPrat.getValueAt(tblPrat.getSelectedRow(),0).toString());
+            ModelSpecialite mdlSpe = new ModelSpecialite();
+            mdlSpe.LoadDatasSpe(fm.getAllSpecialiteByPraNum(praNum));
+            tblList.setModel(mdlSpe);
+        }
+        if(cbIntro.getSelectedItem().toString()=="Activités"){
+            int praNum = Integer.parseInt(tblPrat.getValueAt(tblPrat.getSelectedRow(),0).toString());
+            ModelActivite mdlActivite = new ModelActivite();
+            mdlActivite.LoadActiviteDateLieu(fm.getAllActiviteByPraNum(praNum));
+            tblList.setModel(mdlActivite);
+        }
+        
+    }//GEN-LAST:event_tblPratMouseClicked
+
+    private void lblAccueilMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAccueilMenuMouseClicked
+        this.setVisible(false);
+        frmAccueil frmAcc = new frmAccueil();
+        frmAcc.setVisible(true);
+    }//GEN-LAST:event_lblAccueilMenuMouseClicked
 
     /**
      * @param args the command line arguments
@@ -80,5 +276,15 @@ public class frmLister extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> cbIntro;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lblAccueilMenu;
+    private javax.swing.JTable tblList;
+    private javax.swing.JTable tblPrat;
     // End of variables declaration//GEN-END:variables
 }

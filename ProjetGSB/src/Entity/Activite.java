@@ -12,12 +12,18 @@ public class Activite {
     private String themeActivite;
     private String motifActivite;
     
-public Activite(int unActivite, String unDate, String unLieu , String unTheme, String unMotif){
-    numActivite  = unActivite;
+public Activite(int unNumActivite, String unDate, String unLieu , String unTheme, String unMotif){
+    numActivite  = unNumActivite;
     dateActivite = unDate;
     lieuActivite= unLieu;
     themeActivite = unTheme;
     motifActivite= unMotif;
+}
+public Activite(int unNum,String unDate, String unLieu, String unTheme){
+    numActivite = unNum;
+    dateActivite = unDate;
+    lieuActivite = unLieu;
+    themeActivite = unTheme;
 }
 
     /**

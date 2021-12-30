@@ -18,6 +18,10 @@ public class Specialite {
         speCode = unCode;
         speLibelle= unLibelle;
     }
+    
+    public Specialite(String unLibelle){
+        speLibelle= unLibelle;
+    }
 
     /**
      * @return the speCode
