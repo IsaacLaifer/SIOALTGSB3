@@ -332,8 +332,10 @@ public class FrmCreatPrat extends javax.swing.JFrame {
         int typePrat = Integer.parseInt(TP);
         int idLastPrat = fm.getLastIdPraticien();
         fm.InsererPraticien(idLastPrat,txtNomPrat.getText(),txtPrenomPrat.getText(),txtAdressePrat.getText(),txtCodePostalPrat.getText(),txtVillePrat.getText(),notePrat,typePrat);
-      
-        }
+            
+        this.setVisible(false);
+        FrmCreatPrat frmCreP = new FrmCreatPrat();
+        frmCreP.setVisible(true);        }
         
     }//GEN-LAST:event_btnInsererPratMouseClicked
 

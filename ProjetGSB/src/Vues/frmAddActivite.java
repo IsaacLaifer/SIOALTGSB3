@@ -255,6 +255,11 @@ public class frmAddActivite extends javax.swing.JFrame {
              txtOui.setText("");
              txtNon.setText("");
              txtLog.setText("Le praticien a déjà cette activité");
+             
+             this.setVisible(false);
+             frmAddActivite frmAdd = new frmAddActivite();
+             frmAdd.setVisible(true);
+                   
          }
         
         

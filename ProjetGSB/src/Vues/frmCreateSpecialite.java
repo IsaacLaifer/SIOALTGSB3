@@ -204,6 +204,11 @@ public class frmCreateSpecialite extends javax.swing.JFrame {
         }else{
             fm.insererSpecialite(idSpe, str);
             lblErreur.setText("Spécialité créer");
+            
+            this.setVisible(false);
+            frmCreateSpecialite frmCre = new frmCreateSpecialite();
+            frmCre.setVisible(true);
+            
         }
         
         

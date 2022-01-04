@@ -250,11 +250,12 @@ public class frmModifierPraticien extends javax.swing.JFrame {
         
         fm.deleteSpecialitePraticien(praNum, speCodeDelete);
         
-        /*this.setVisible(false);
+        this.setVisible(false);
         frmModifierPraticien frmModifPrat = new frmModifierPraticien();
-        frmModifPrat.setVisible(true); */
+        frmModifPrat.setVisible(true); 
         
         lblFinish.setText("Modification effectuer.");
+        
         
     }//GEN-LAST:event_lblOuiMouseClicked
 
