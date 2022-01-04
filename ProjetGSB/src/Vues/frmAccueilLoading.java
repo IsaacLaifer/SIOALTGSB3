@@ -4,6 +4,9 @@
  */
 package Vues;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
 
 /**
@@ -34,7 +37,6 @@ public class frmAccueilLoading extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setForeground(java.awt.Color.white);
-        setPreferredSize(new java.awt.Dimension(745, 800));
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
@@ -42,12 +44,13 @@ public class frmAccueilLoading extends javax.swing.JFrame {
             }
         });
 
-        background.setBackground(new java.awt.Color(0, 204, 204));
+        background.setBackground(new java.awt.Color(0, 215, 255));
         background.setPreferredSize(new java.awt.Dimension(745, 800));
 
         lblBare.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/blackLine.png"))); // NOI18N
 
         lblLogo.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
+        lblLogo.setForeground(new java.awt.Color(0, 37, 129));
         lblLogo.setText("SIMEDICAL");
 
         javax.swing.GroupLayout backgroundLayout = new javax.swing.GroupLayout(background);
@@ -55,8 +58,8 @@ public class frmAccueilLoading extends javax.swing.JFrame {
         backgroundLayout.setHorizontalGroup(
             backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(backgroundLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblBare, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(lblBare, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(91, 91, 91)
                 .addComponent(lblLogo, javax.swing.GroupLayout.DEFAULT_SIZE, 334, Short.MAX_VALUE)
                 .addGap(127, 127, 127))
@@ -95,7 +98,7 @@ public class frmAccueilLoading extends javax.swing.JFrame {
           public void run() {
             int x = 200;
             int y = 300;
-            while(true){
+            while(x < 715){
                 lblLogo.setLocation(x,y);
                 x +=10;
                 
@@ -123,13 +126,23 @@ public class frmAccueilLoading extends javax.swing.JFrame {
                     
                 }
             }
+            
           }
       });
-       animation.start();
+        
+      animation.start();
+//        try {
+//             
+//            //animation.join();
+//        } catch (InterruptedException ex) {
+//            Logger.getLogger(frmAccueilLoading.class.getName()).log(Level.SEVERE, null, ex);
+//        }
        animeBarre.start();
-
-      frmAuthentification frmAuth = new frmAuthentification();
-      frmAuth.setVisible(true);
+       
+      
+frmAccueil frm = new frmAccueil();
+frm.setVisible(true);
+      
     }//GEN-LAST:event_formWindowOpened
 
     /**

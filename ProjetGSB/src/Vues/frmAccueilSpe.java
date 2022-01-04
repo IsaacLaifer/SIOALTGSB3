@@ -47,12 +47,13 @@ public class frmAccueilSpe extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(0, 204, 204));
+        jPanel1.setBackground(new java.awt.Color(0, 215, 255));
         jPanel1.setMaximumSize(new java.awt.Dimension(745, 800));
         jPanel1.setMinimumSize(new java.awt.Dimension(745, 800));
         jPanel1.setPreferredSize(new java.awt.Dimension(745, 800));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 37, 129));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("LES SPECIALITES");
 
@@ -60,12 +61,15 @@ public class frmAccueilSpe extends javax.swing.JFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/blackLine.png"))); // NOI18N
 
         lblText1.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
+        lblText1.setForeground(new java.awt.Color(0, 37, 129));
         lblText1.setText("INSERER");
 
         lblText2.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
+        lblText2.setForeground(new java.awt.Color(0, 37, 129));
         lblText2.setText("MODIFIER");
 
         lblText3.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
+        lblText3.setForeground(new java.awt.Color(0, 37, 129));
         lblText3.setText("LISTER");
 
         lblNumInserer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/num1Logo.png"))); // NOI18N
@@ -90,7 +94,7 @@ public class frmAccueilSpe extends javax.swing.JFrame {
         });
 
         lblAccueil.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblAccueil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/homeLogo.png"))); // NOI18N
+        lblAccueil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logoAcceuil.png"))); // NOI18N
         lblAccueil.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblAccueilMouseClicked(evt);
@@ -120,8 +124,8 @@ public class frmAccueilSpe extends javax.swing.JFrame {
                             .addComponent(lblText3, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblText2, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(76, 76, 76)))
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(71, 71, 71))
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 6, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(85, 85, 85))
             .addComponent(lblAccueil, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
@@ -151,10 +155,10 @@ public class frmAccueilSpe extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(lblText3)
                                 .addGap(34, 34, 34))))
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 545, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 568, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblAccueil)
-                .addContainerGap(79, Short.MAX_VALUE))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -194,8 +198,8 @@ public class frmAccueilSpe extends javax.swing.JFrame {
 
     private void lblNumModifierMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNumModifierMouseClicked
         this.setVisible(false);
-        frmModifierPraticien frmModifSpe = new frmModifierPraticien();
-        frmModifSpe.setVisible(true);
+        frmModifSpe frmSpe = new frmModifSpe();
+        frmSpe.setVisible(true);
     }//GEN-LAST:event_lblNumModifierMouseClicked
 
     private void lblNumListerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNumListerMouseClicked
