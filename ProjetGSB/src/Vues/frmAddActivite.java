@@ -132,7 +132,7 @@ public class frmAddActivite extends javax.swing.JFrame {
         txtLog.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         lblAccueilMenu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblAccueilMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/homeLogo.png"))); // NOI18N
+        lblAccueilMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logoAcceuil.png"))); // NOI18N
         lblAccueilMenu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblAccueilMenuMouseClicked(evt);
@@ -198,7 +198,7 @@ public class frmAddActivite extends javax.swing.JFrame {
                 .addComponent(txtLog, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblAccueilMenu)
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

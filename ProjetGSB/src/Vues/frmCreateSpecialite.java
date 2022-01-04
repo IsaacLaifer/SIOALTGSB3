@@ -99,7 +99,7 @@ public class frmCreateSpecialite extends javax.swing.JFrame {
         lblErreur.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         lblAccueilMenu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblAccueilMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/homeLogo.png"))); // NOI18N
+        lblAccueilMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logoAcceuil.png"))); // NOI18N
         lblAccueilMenu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblAccueilMenuMouseClicked(evt);
@@ -156,7 +156,7 @@ public class frmCreateSpecialite extends javax.swing.JFrame {
                 .addComponent(lblErreur, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblAccueilMenu)
-                .addContainerGap(199, Short.MAX_VALUE))
+                .addContainerGap(197, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

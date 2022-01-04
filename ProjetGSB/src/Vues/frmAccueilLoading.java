@@ -4,6 +4,9 @@
  */
 package Vues;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
 
 /**
@@ -95,7 +98,7 @@ public class frmAccueilLoading extends javax.swing.JFrame {
           public void run() {
             int x = 200;
             int y = 300;
-            while(true){
+            while(x < 715){
                 lblLogo.setLocation(x,y);
                 x +=10;
                 
@@ -123,13 +126,23 @@ public class frmAccueilLoading extends javax.swing.JFrame {
                     
                 }
             }
+            
           }
       });
-       animation.start();
+        
+      animation.start();
+//        try {
+//             
+//            //animation.join();
+//        } catch (InterruptedException ex) {
+//            Logger.getLogger(frmAccueilLoading.class.getName()).log(Level.SEVERE, null, ex);
+//        }
        animeBarre.start();
-
-      frmAuthentification frmAuth = new frmAuthentification();
-      frmAuth.setVisible(true);
+       
+      
+frmAccueil frm = new frmAccueil();
+frm.setVisible(true);
+      
     }//GEN-LAST:event_formWindowOpened
 
     /**

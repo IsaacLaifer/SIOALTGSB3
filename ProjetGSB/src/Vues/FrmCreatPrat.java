@@ -135,7 +135,7 @@ public class FrmCreatPrat extends javax.swing.JFrame {
         });
 
         lblAccueilMenu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblAccueilMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/homeLogo.png"))); // NOI18N
+        lblAccueilMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logoAcceuil.png"))); // NOI18N
         lblAccueilMenu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblAccueilMenuMouseClicked(evt);
@@ -268,7 +268,7 @@ public class FrmCreatPrat extends javax.swing.JFrame {
                 .addComponent(btnInsererPrat)
                 .addGap(30, 30, 30)
                 .addComponent(lblAccueilMenu)
-                .addContainerGap(94, Short.MAX_VALUE))
+                .addContainerGap(92, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

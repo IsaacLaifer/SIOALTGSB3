@@ -105,7 +105,7 @@
                           <Component id="txtLib" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="133" max="32767" attributes="0"/>
+                  <EmptySpace pref="131" max="32767" attributes="0"/>
                   <Component id="btnModif" min="-2" pref="42" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                   <Component id="lblErreur" min="-2" pref="50" max="-2" attributes="0"/>
@@ -121,7 +121,7 @@
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Images/homeLogo.png"/>
+              <Image iconType="3" name="/Images/logoAcceuil.png"/>
             </Property>
           </Properties>
           <Events>
