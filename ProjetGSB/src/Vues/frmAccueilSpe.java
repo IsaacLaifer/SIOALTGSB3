@@ -194,8 +194,8 @@ public class frmAccueilSpe extends javax.swing.JFrame {
 
     private void lblNumModifierMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNumModifierMouseClicked
         this.setVisible(false);
-        frmModifierPraticien frmModifSpe = new frmModifierPraticien();
-        frmModifSpe.setVisible(true);
+        frmModifSpe frmSpe = new frmModifSpe();
+        frmSpe.setVisible(true);
     }//GEN-LAST:event_lblNumModifierMouseClicked
 
     private void lblNumListerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNumListerMouseClicked
