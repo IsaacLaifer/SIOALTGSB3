@@ -53,7 +53,7 @@ public class frmModifSpe extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(0, 204, 204));
+        jPanel1.setBackground(new java.awt.Color(0, 215, 255));
         jPanel1.setMaximumSize(new java.awt.Dimension(775, 800));
         jPanel1.setMinimumSize(new java.awt.Dimension(775, 800));
         jPanel1.setName(""); // NOI18N
@@ -83,10 +83,12 @@ public class frmModifSpe extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tblSpe);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 37, 129));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("MODIFIER");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 37, 129));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Entrez le nouveau libéllé");
 
@@ -97,6 +99,7 @@ public class frmModifSpe extends javax.swing.JFrame {
         });
 
         btnModif.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnModif.setForeground(new java.awt.Color(0, 37, 129));
         btnModif.setText("MODIFIER");
         btnModif.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

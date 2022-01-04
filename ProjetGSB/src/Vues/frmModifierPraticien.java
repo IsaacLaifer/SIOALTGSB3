@@ -52,12 +52,13 @@ public class frmModifierPraticien extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(0, 204, 204));
+        jPanel1.setBackground(new java.awt.Color(0, 215, 255));
         jPanel1.setMaximumSize(new java.awt.Dimension(755, 800));
         jPanel1.setMinimumSize(new java.awt.Dimension(755, 800));
         jPanel1.setPreferredSize(new java.awt.Dimension(755, 800));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 37, 129));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Modifier les spécialités d'un praticien");
 
@@ -92,6 +93,7 @@ public class frmModifierPraticien extends javax.swing.JFrame {
         jScrollPane2.setViewportView(tblSpecialite);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 37, 129));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Cliquez pour supprimé une spécialité");
 

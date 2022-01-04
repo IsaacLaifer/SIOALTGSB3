@@ -55,12 +55,13 @@ public class frmAddActivite extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(0, 204, 204));
+        jPanel1.setBackground(new java.awt.Color(0, 215, 255));
         jPanel1.setMaximumSize(new java.awt.Dimension(755, 800));
         jPanel1.setMinimumSize(new java.awt.Dimension(755, 800));
         jPanel1.setPreferredSize(new java.awt.Dimension(755, 800));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 37, 129));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("AJouter une activité a un praticien");
 
@@ -80,10 +81,12 @@ public class frmAddActivite extends javax.swing.JFrame {
         jScrollPane2.setViewportView(tblPrat);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 37, 129));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Séléctionner le praticien");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 37, 129));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Quel activité ?");
 
@@ -103,6 +106,7 @@ public class frmAddActivite extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tblActivite);
 
         txtQstn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        txtQstn.setForeground(new java.awt.Color(0, 37, 129));
         txtQstn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtQstn.setText("Est-t-il spécialiste dans ce domaine?");
 

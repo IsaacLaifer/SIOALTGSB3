@@ -40,12 +40,13 @@ public class frmAccueilPrat extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(0, 204, 204));
+        jPanel1.setBackground(new java.awt.Color(0, 215, 255));
         jPanel1.setMaximumSize(new java.awt.Dimension(745, 800));
         jPanel1.setMinimumSize(new java.awt.Dimension(745, 800));
         jPanel1.setPreferredSize(new java.awt.Dimension(745, 800));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 37, 129));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("PRATICIEN");
 
@@ -53,12 +54,15 @@ public class frmAccueilPrat extends javax.swing.JFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/blackLine.png"))); // NOI18N
 
         lblText1.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
+        lblText1.setForeground(new java.awt.Color(0, 37, 129));
         lblText1.setText("INSERER");
 
         lblText2.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
+        lblText2.setForeground(new java.awt.Color(0, 37, 129));
         lblText2.setText("MODIFIER");
 
         lblText3.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
+        lblText3.setForeground(new java.awt.Color(0, 37, 129));
         lblText3.setText("LISTER");
 
         lblNumInserer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/num1Logo.png"))); // NOI18N
@@ -112,16 +116,16 @@ public class frmAccueilPrat extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(182, 182, 182)))
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(71, 71, 71))
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 8, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(83, 83, 83))
             .addComponent(lblAccueil, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
                         .addComponent(jLabel1)
                         .addGap(100, 100, 100)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -143,10 +147,12 @@ public class frmAccueilPrat extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(lblText3)
                                 .addGap(34, 34, 34))))
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 545, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 599, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(37, 37, 37)
                 .addComponent(lblAccueil)
-                .addContainerGap(79, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
