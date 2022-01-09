@@ -45,7 +45,7 @@ public class frmModifSpe extends javax.swing.JFrame {
         btnModif = new javax.swing.JButton();
         lblErreur = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
@@ -104,6 +104,11 @@ public class frmModifSpe extends javax.swing.JFrame {
         btnModif.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnModifMouseClicked(evt);
+            }
+        });
+        btnModif.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModifActionPerformed(evt);
             }
         });
 
@@ -196,7 +201,10 @@ public class frmModifSpe extends javax.swing.JFrame {
 
     private void tblSpeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblSpeMouseClicked
           int idSpe = Integer.parseInt(tblSpe.getValueAt(tblSpe.getSelectedRow(),0).toString());
+          lblErreur.setText("");
           
+          String libSpe = tblSpe.getValueAt(tblSpe.getSelectedRow(),1).toString();
+          txtLib.setText(libSpe);
     }//GEN-LAST:event_tblSpeMouseClicked
 
     private void btnModifMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModifMouseClicked
@@ -220,6 +228,12 @@ public class frmModifSpe extends javax.swing.JFrame {
        }
        
     }//GEN-LAST:event_btnModifMouseClicked
+
+    private void btnModifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModifActionPerformed
+          if(tblSpe.getSelectionModel().isSelectionEmpty()){
+           lblErreur.setText("Cliquer sur une spécialité");
+       }
+    }//GEN-LAST:event_btnModifActionPerformed
 
     /**
      * @param args the command line arguments

@@ -45,7 +45,6 @@ public class frmModifierPraticien extends javax.swing.JFrame {
         lblActualiser = new javax.swing.JLabel();
         lblAccueilMenu = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);

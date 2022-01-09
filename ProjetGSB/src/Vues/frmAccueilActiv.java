@@ -36,7 +36,7 @@ public class frmAccueilActiv extends javax.swing.JFrame {
         lblNumModifier = new javax.swing.JLabel();
         lblAccueil = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(0, 215, 255));
@@ -87,7 +87,7 @@ public class frmAccueilActiv extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(240, Short.MAX_VALUE)
+                .addContainerGap(241, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -151,19 +151,19 @@ public class frmAccueilActiv extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void lblNumInsererMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNumInsererMouseClicked
-        this.setVisible(false);
+       
         frmAddActivite frmAddActviv = new frmAddActivite();
         frmAddActviv.setVisible(true);
     }//GEN-LAST:event_lblNumInsererMouseClicked
 
     private void lblNumModifierMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNumModifierMouseClicked
-        this.setVisible(false);
+       
         frmLister frmList = new frmLister();
         frmList.setVisible(true);
     }//GEN-LAST:event_lblNumModifierMouseClicked
 
     private void lblAccueilMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAccueilMouseClicked
-        this.setVisible(false);
+        
         frmAccueil frmAcc = new frmAccueil();
         frmAcc.setVisible(true);
     }//GEN-LAST:event_lblAccueilMouseClicked
