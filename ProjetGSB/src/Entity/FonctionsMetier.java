@@ -324,6 +324,34 @@ public class FonctionsMetier implements IMetier
           return idSpe;        
     }
 
+    @Override
+    public void modifSpe(int unId, String unNom) {
+        try {
+            maCnx=ConnexionBdd.getCnx();
+            String maSQL = "UPDATE specialite SET SPE_LIBELLE='"+unNom+"' WHERE SPE_CODE=" +unId+"";
+            ps=maCnx.prepareStatement(maSQL);
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(FonctionsMetier.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+    @Override
+    public int maxcode() {
+       int  code = 0;
+        try {
+            maCnx=ConnexionBdd.getCnx();
+            ps=maCnx.prepareStatement("SELECT max(TYP_Code) from type_praticien");
+            rs=ps.executeQuery();
+            rs.next();
+            code = rs.getInt(1);
+        } catch (SQLException ex) {
+            Logger.getLogger(FonctionsMetier.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return code;
+    }
+
    
     
 }

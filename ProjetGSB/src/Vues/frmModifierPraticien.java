@@ -45,21 +45,21 @@ public class frmModifierPraticien extends javax.swing.JFrame {
         lblActualiser = new javax.swing.JLabel();
         lblAccueilMenu = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(0, 204, 204));
+        jPanel1.setBackground(new java.awt.Color(0, 215, 255));
         jPanel1.setMaximumSize(new java.awt.Dimension(755, 800));
         jPanel1.setMinimumSize(new java.awt.Dimension(755, 800));
         jPanel1.setPreferredSize(new java.awt.Dimension(755, 800));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 37, 129));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Modifier les spécialités d'un praticien");
+        jLabel1.setText("Modifier les spécialitées d'un praticien");
 
         tblPraticien.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -92,8 +92,9 @@ public class frmModifierPraticien extends javax.swing.JFrame {
         jScrollPane2.setViewportView(tblSpecialite);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 37, 129));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Cliquez pour supprimé une spécialité");
+        jLabel2.setText("Cliquez pour supprimer une spécialitée");
 
         lblConfirm.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblConfirm.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -127,7 +128,7 @@ public class frmModifierPraticien extends javax.swing.JFrame {
         });
 
         lblAccueilMenu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblAccueilMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/homeLogo.png"))); // NOI18N
+        lblAccueilMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logoAcceuil.png"))); // NOI18N
         lblAccueilMenu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblAccueilMenuMouseClicked(evt);
@@ -248,11 +249,12 @@ public class frmModifierPraticien extends javax.swing.JFrame {
         
         fm.deleteSpecialitePraticien(praNum, speCodeDelete);
         
-        /*this.setVisible(false);
+        this.setVisible(false);
         frmModifierPraticien frmModifPrat = new frmModifierPraticien();
-        frmModifPrat.setVisible(true); */
+        frmModifPrat.setVisible(true); 
         
         lblFinish.setText("Modification effectuer.");
+        
         
     }//GEN-LAST:event_lblOuiMouseClicked
 

@@ -42,8 +42,13 @@ public interface IMetier
     /* SUPPRIMER */
     public void deleteSpecialitePraticien(int pra_num , int spe_code);
     
+    /* MODIFIER */
+    public void modifSpe(int unId, String unNom);
+    
     /* AUTRES */
     public int getLastIdPraticien();
     
     public int getLastIdSpecialite();
+    
+    public int maxcode();
 }
