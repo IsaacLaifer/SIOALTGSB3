@@ -91,7 +91,7 @@ public class frmLister extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 37, 129));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Pour quel praticien ?");
+        jLabel3.setText("Pour quels praticiens ?");
 
         tblList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

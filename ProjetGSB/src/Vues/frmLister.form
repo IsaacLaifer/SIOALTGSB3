@@ -170,7 +170,7 @@
               <Color blue="81" green="25" red="0" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Pour quel praticien ?"/>
+            <Property name="text" type="java.lang.String" value="Pour quels praticiens ?"/>
           </Properties>
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane1">

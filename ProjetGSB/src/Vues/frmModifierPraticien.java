@@ -59,7 +59,7 @@ public class frmModifierPraticien extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 37, 129));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Modifier les spécialités d'un praticien");
+        jLabel1.setText("Modifier les spécialitées d'un praticien");
 
         tblPraticien.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -94,7 +94,7 @@ public class frmModifierPraticien extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 37, 129));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Cliquez pour supprimé une spécialité");
+        jLabel2.setText("Cliquez pour supprimer une spécialitée");
 
         lblConfirm.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblConfirm.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);

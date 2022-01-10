@@ -63,7 +63,7 @@ public class frmAddActivite extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 37, 129));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("AJouter une activité a un praticien");
+        jLabel1.setText("Ajouter une activitée à un praticien");
 
         tblPrat.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -88,7 +88,7 @@ public class frmAddActivite extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 37, 129));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Quel activité ?");
+        jLabel3.setText("Quelles activitées ?");
 
         tblActivite.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
