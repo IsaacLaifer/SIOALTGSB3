@@ -347,6 +347,10 @@ public class FrmCreatPrat extends javax.swing.JFrame {
         FrmCreatPrat frmCreP = new FrmCreatPrat();
         frmCreP.setVisible(true);        }
         
+        int maxType = fm.maxcode();
+        if  (txtTypePrat.getText(isNaN) {lblErreur.setText("Entrer un chiffre");
+        }else if  > maxType {lblErreur.setText("Entrer unbon numéro");}
+        
     }//GEN-LAST:event_btnInsererPratMouseClicked
 
     private void lblAccueilMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAccueilMenuMouseClicked
