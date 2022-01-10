@@ -333,7 +333,7 @@ public class FrmCreatPrat extends javax.swing.JFrame {
             lblErreur.setText("Entrer la note");
         }else if(txtTypePrat.getText().compareTo("")==0){
             lblErreur.setText("Entrer le type");
-        }else if(!txtTypePrat.getText().matches(".*\\d.*")){
+        }else if(txtTypePrat.getText().matches(".*\\d.*")){
             lblErreur.setText("Entrer le chiffre correspondant sans caractère");
         }
         

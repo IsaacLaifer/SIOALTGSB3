@@ -40,7 +40,7 @@ public class ModelPraticien extends AbstractTableModel {
     }
     
     public void LoadDatas(ArrayList<Praticien>desPraticiens){
-        nomsColonnes = new String[]{"num","nom","prenom","adresse","cp","ville","note","type code"};
+        nomsColonnes = new String[]{"id","nom","prenom","adresse","cp","ville","note","type code"};
         rows = new Vector<String[]>();
         
         for (Praticien p : desPraticiens){
