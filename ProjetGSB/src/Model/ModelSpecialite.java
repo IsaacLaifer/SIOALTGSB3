@@ -42,7 +42,7 @@ public class ModelSpecialite extends AbstractTableModel{
     
        public void LoadDatasSpe(ArrayList<Specialite>desSpecialites)
     {
-        nomsColonnes = new String[]{"SPE_CODE","LIBELLE"};
+        nomsColonnes = new String[]{"CODE","LIBELLE"};
         rows= new Vector<String[]>();
         
         for (Specialite s : desSpecialites)
@@ -54,7 +54,7 @@ public class ModelSpecialite extends AbstractTableModel{
 
     public void LoadDats2Colonnes(ArrayList<Specialite>allSpecialiteByPra_num) {
         
-        nomsColonnes = new String[]{"SPE_CODE","LIBELLE"};
+        nomsColonnes = new String[]{"CODE","LIBELLE"};
         rows= new Vector<>();
         
         for (Specialite sp : allSpecialiteByPra_num)

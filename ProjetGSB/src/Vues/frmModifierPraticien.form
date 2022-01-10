@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
-  <Properties>
-    <Property name="defaultCloseOperation" type="int" value="3"/>
-  </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
     <SyntheticProperty name="generateCenter" type="boolean" value="true"/>
@@ -141,7 +138,7 @@
               <Color blue="81" green="25" red="0" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Modifier les sp&#xe9;cialit&#xe9;s d&apos;un praticien"/>
+            <Property name="text" type="java.lang.String" value="Modifier les sp&#xe9;cialit&#xe9;es d&apos;un praticien"/>
           </Properties>
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane1">
@@ -191,7 +188,7 @@
               <Color blue="81" green="25" red="0" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Cliquez pour supprim&#xe9; une sp&#xe9;cialit&#xe9;"/>
+            <Property name="text" type="java.lang.String" value="Cliquez pour supprimer une sp&#xe9;cialit&#xe9;e"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblConfirm">

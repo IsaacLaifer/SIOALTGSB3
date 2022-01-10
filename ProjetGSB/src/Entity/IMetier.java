@@ -49,4 +49,6 @@ public interface IMetier
     public int getLastIdPraticien();
     
     public int getLastIdSpecialite();
+    
+    public int maxcode();
 }

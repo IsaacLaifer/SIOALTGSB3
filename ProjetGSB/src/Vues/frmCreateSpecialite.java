@@ -41,7 +41,6 @@ public class frmCreateSpecialite extends javax.swing.JFrame {
         lblErreur = new javax.swing.JLabel();
         lblAccueilMenu = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(223, 255, 244));
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {

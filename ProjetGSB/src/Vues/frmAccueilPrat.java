@@ -37,7 +37,7 @@ public class frmAccueilPrat extends javax.swing.JFrame {
         lblNumLister = new javax.swing.JLabel();
         lblAccueil = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(0, 215, 255));
@@ -175,25 +175,25 @@ public class frmAccueilPrat extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void lblNumInsererMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNumInsererMouseClicked
-        this.setVisible(false);
+        
         FrmCreatPrat frmCreatePrat = new FrmCreatPrat();
         frmCreatePrat.setVisible(true);
     }//GEN-LAST:event_lblNumInsererMouseClicked
 
     private void lblNumModifierMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNumModifierMouseClicked
-        this.setVisible(false);
+        
         frmModifierPraticien frmModifPrat = new frmModifierPraticien();
         frmModifPrat.setVisible(true);
     }//GEN-LAST:event_lblNumModifierMouseClicked
 
     private void lblNumListerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNumListerMouseClicked
-        this.setVisible(false);
+        
         frmLister frmListe = new frmLister();
         frmListe.setVisible(true);
     }//GEN-LAST:event_lblNumListerMouseClicked
 
     private void lblAccueilMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAccueilMouseClicked
-        this.setVisible(false);
+        
         frmAccueil frmAcc = new frmAccueil();
         frmAcc.setVisible(true);
     }//GEN-LAST:event_lblAccueilMouseClicked

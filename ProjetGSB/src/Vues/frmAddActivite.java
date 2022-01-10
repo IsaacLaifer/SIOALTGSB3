@@ -48,7 +48,7 @@ public class frmAddActivite extends javax.swing.JFrame {
         txtLog = new javax.swing.JLabel();
         lblAccueilMenu = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -63,7 +63,7 @@ public class frmAddActivite extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 37, 129));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("AJouter une activité a un praticien");
+        jLabel1.setText("Ajouter une activitée à un praticien");
 
         tblPrat.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -88,7 +88,7 @@ public class frmAddActivite extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 37, 129));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Quel activité ?");
+        jLabel3.setText("Quelles activitées ?");
 
         tblActivite.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -250,15 +250,14 @@ public class frmAddActivite extends javax.swing.JFrame {
                 txtQstn.setText("Est-t-il spécialiste dans ce domaine");
                 txtOui.setText("oui");
                 txtNon.setText("non");
+              
          }else{
              txtQstn.setText("");
              txtOui.setText("");
              txtNon.setText("");
              txtLog.setText("Le praticien a déjà cette activité");
              
-             this.setVisible(false);
-             frmAddActivite frmAdd = new frmAddActivite();
-             frmAdd.setVisible(true);
+             
                    
          }
         
@@ -273,6 +272,10 @@ public class frmAddActivite extends javax.swing.JFrame {
         int praNum = Integer.parseInt(tblPrat.getValueAt(tblPrat.getSelectedRow(),0).toString());
         int speOn=1;
         fm.InsererActivitie(acNum, praNum, speOn);
+        
+          this.setVisible(false);
+             frmAddActivite frmAdd = new frmAddActivite();
+             frmAdd.setVisible(true);
     }//GEN-LAST:event_txtOuiMouseClicked
 
     private void txtNonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNonMouseClicked
@@ -283,6 +286,10 @@ public class frmAddActivite extends javax.swing.JFrame {
         int praNum = Integer.parseInt(tblPrat.getValueAt(tblPrat.getSelectedRow(),0).toString());
         int speOn=0;
         fm.InsererActivitie(acNum, praNum, speOn);
+        
+        this.setVisible(false);
+             frmAddActivite frmAdd = new frmAddActivite();
+             frmAdd.setVisible(true);
     }//GEN-LAST:event_txtNonMouseClicked
 
     private void lblAccueilMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAccueilMenuMouseClicked
