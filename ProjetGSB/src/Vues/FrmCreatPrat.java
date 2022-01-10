@@ -333,6 +333,8 @@ public class FrmCreatPrat extends javax.swing.JFrame {
             lblErreur.setText("Entrer la note");
         }else if(txtTypePrat.getText().compareTo("")==0){
             lblErreur.setText("Entrer le type");
+        }else if(!txtTypePrat.getText().matches(".*\\d.*")){
+            lblErreur.setText("Entrer le chiffre correspondant sans caractère");
         }
         
         else{
@@ -348,8 +350,7 @@ public class FrmCreatPrat extends javax.swing.JFrame {
         frmCreP.setVisible(true);        }
         
         int maxType = fm.maxcode();
-        if  (txtTypePrat.getText(isNaN) {lblErreur.setText("Entrer un chiffre");
-        }else if  > maxType {lblErreur.setText("Entrer unbon numéro");}
+        
         
     }//GEN-LAST:event_btnInsererPratMouseClicked
 
