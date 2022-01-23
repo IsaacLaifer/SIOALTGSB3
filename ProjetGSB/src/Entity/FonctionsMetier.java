@@ -352,6 +352,22 @@ public class FonctionsMetier implements IMetier
         return code;
     }
 
+    @Override
+    public int countNote(int uneNote) {
+        int cNote = 0;
+        try {
+            maCnx=ConnexionBdd.getCnx();
+            ps=maCnx.prepareStatement("SELECT COUNT(p.PRA_NUM) FROM praticien AS p WHERE p.PRA_COEFNOTORIETE >"+uneNote+"");
+            rs=ps.executeQuery();
+            rs.next();
+            cNote=rs.getInt(1);
+        } catch (SQLException ex) {
+            Logger.getLogger(FonctionsMetier.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return cNote;
+    }
+
    
     
 }
