@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import static javax.swing.UIManager.getString;
@@ -352,6 +353,35 @@ public class FonctionsMetier implements IMetier
         return code;
     }
 
+    @Override
+    public int countNote(int uneNote) {
+        int cNote = 0;
+        try {
+            maCnx=ConnexionBdd.getCnx();
+            ps=maCnx.prepareStatement("SELECT COUNT(p.PRA_NUM) FROM praticien AS p WHERE p.PRA_COEFNOTORIETE >"+uneNote+"");
+            rs=ps.executeQuery();
+            rs.next();
+            cNote=rs.getInt(1);
+        } catch (SQLException ex) {
+            Logger.getLogger(FonctionsMetier.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return cNote;
+    }
+
    
-    
+    public HashMap<String,Integer> GetDatasGraphiqueNote() throws SQLException 
+    {
+        HashMap<String, Integer> datas = new HashMap();
+        
+        maCnx = ConnexionBdd.getCnx();
+        ps = maCnx.prepareStatement("SELECT PRA_NOM , PRA_COEFNOTORIETE FROM praticien ORDER BY praticien.PRA_COEFNOTORIETE ASC");
+            rs = ps.executeQuery();
+            while(rs.next())
+            {
+                datas.put(rs.getString(1), rs.getInt(2));
+            }
+        
+        return datas;
+    }
 }
