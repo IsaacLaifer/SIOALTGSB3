@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import static javax.swing.UIManager.getString;
@@ -369,5 +370,18 @@ public class FonctionsMetier implements IMetier
     }
 
    
-    
+    public HashMap<String,Integer> GetDatasGraphiqueNote() throws SQLException 
+    {
+        HashMap<String, Integer> datas = new HashMap();
+        
+        maCnx = ConnexionBdd.getCnx();
+        ps = maCnx.prepareStatement("SELECT PRA_NOM , PRA_COEFNOTORIETE FROM praticien ORDER BY praticien.PRA_COEFNOTORIETE ASC");
+            rs = ps.executeQuery();
+            while(rs.next())
+            {
+                datas.put(rs.getString(1), rs.getInt(2));
+            }
+        
+        return datas;
+    }
 }

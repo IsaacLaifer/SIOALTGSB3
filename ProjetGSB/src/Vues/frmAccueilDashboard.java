@@ -10,9 +10,20 @@ import Entity.FonctionsMetier;
 import Model.ModelActivite;
 import Model.ModelPraticien;
 import Model.ModelSpecialite;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartFrame;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.category.CategoryDataset;
+import org.jfree.data.category.DefaultCategoryDataset;
+import org.jfree.data.general.DefaultPieDataset;
 
 public class frmAccueilDashboard extends javax.swing.JFrame {
 
@@ -33,10 +44,13 @@ public class frmAccueilDashboard extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        btnGraphNote = new javax.swing.JButton();
-        lblTest = new javax.swing.JLabel();
+        lblText3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        txtNote = new javax.swing.JTextField();
+        lblText1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        lblAccueil = new javax.swing.JLabel();
+        lblGraphNote = new javax.swing.JLabel();
+        lblGraph2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(745, 800));
@@ -53,14 +67,41 @@ public class frmAccueilDashboard extends javax.swing.JFrame {
         jPanel1.setMinimumSize(new java.awt.Dimension(745, 800));
         jPanel1.setPreferredSize(new java.awt.Dimension(745, 800));
 
-        btnGraphNote.setText("Graphique note");
+        lblText3.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
+        lblText3.setForeground(new java.awt.Color(0, 37, 129));
+        lblText3.setText("Graphique 2");
 
-        jLabel1.setText("ENTRER UNE NOTE");
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 37, 129));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("DASHBOARD");
 
-        txtNote.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtNote.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                txtNotePropertyChange(evt);
+        lblText1.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
+        lblText1.setForeground(new java.awt.Color(0, 37, 129));
+        lblText1.setText("Graphique note praticien");
+
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/blackLine.png"))); // NOI18N
+
+        lblAccueil.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblAccueil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logoAcceuil.png"))); // NOI18N
+        lblAccueil.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblAccueilMouseClicked(evt);
+            }
+        });
+
+        lblGraphNote.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/num1Logo.png"))); // NOI18N
+        lblGraphNote.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblGraphNoteMouseClicked(evt);
+            }
+        });
+
+        lblGraph2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/num2Logo.png"))); // NOI18N
+        lblGraph2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblGraph2MouseClicked(evt);
             }
         });
 
@@ -71,29 +112,54 @@ public class frmAccueilDashboard extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(271, 271, 271)
-                        .addComponent(btnGraphNote, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(211, 211, 211)
+                        .addComponent(lblGraph2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblText3, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(106, 106, 106))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(347, 347, 347)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblTest, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(txtNote, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                .addContainerGap(281, Short.MAX_VALUE))
+                        .addGap(222, 222, 222)
+                        .addComponent(lblGraphNote)
+                        .addGap(30, 30, 30)
+                        .addComponent(lblText1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)))
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 7, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(95, 95, 95))
+            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(lblAccueil, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(135, 135, 135)
-                .addComponent(btnGraphNote, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(80, 80, 80)
+                .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(39, 39, 39)
-                .addComponent(txtNote, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(86, 86, 86)
-                .addComponent(lblTest, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(337, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(134, 134, 134)
+                                .addComponent(lblGraphNote)
+                                .addGap(88, 88, 88)
+                                .addComponent(lblGraph2))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(144, 144, 144)
+                                .addComponent(lblText1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(116, 116, 116)
+                                .addComponent(lblText3)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 597, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(98, 98, 98))))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(592, 592, 592)
+                    .addComponent(lblAccueil)
+                    .addContainerGap(81, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -119,40 +185,46 @@ public class frmAccueilDashboard extends javax.swing.JFrame {
       cnx = new ConnexionBdd();
       fm = new FonctionsMetier();
       
-       DocumentListener dl = new DocumentListener() {
-
-                @Override
-                public void insertUpdate(DocumentEvent e) {
-                    updateFieldState();
-                }
-
-                @Override
-                public void removeUpdate(DocumentEvent e) {
-                    updateFieldState();
-                }
-
-                @Override
-                public void changedUpdate(DocumentEvent e) {
-                    updateFieldState();
-                }
-
-                protected void updateFieldState() {
-                    String note = txtNote.getText();
-                    int i = Integer.parseInt(note);
-                    String res = Integer.toString(fm.countNote(i));
-                    
-                    lblTest.setText(res);
-            
-                }
-            };
-       txtNote.getDocument().addDocumentListener(dl);
+      
        
        
     }//GEN-LAST:event_formWindowOpened
 
-    private void txtNotePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_txtNotePropertyChange
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNotePropertyChange
+    private void lblAccueilMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAccueilMouseClicked
+
+        frmAccueil frmAcc = new frmAccueil();
+        frmAcc.setVisible(true);
+    }//GEN-LAST:event_lblAccueilMouseClicked
+
+    private void lblGraphNoteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGraphNoteMouseClicked
+
+       try {
+            // CAMENBERT
+            
+            DefaultPieDataset donnees = new DefaultPieDataset();
+            
+            for(Map.Entry valeur : fm.GetDatasGraphiqueNote().entrySet()){
+                donnees.setValue(valeur.getKey().toString(), Integer.parseInt(valeur.getValue().toString()));
+            }
+            
+            JFreeChart chart1 = ChartFactory.createPieChart("Note pour chaque praticiens", donnees,
+                    false, // Légende
+                    true, // Info bulle
+                    true); // Url
+            
+            ChartFrame frame = new ChartFrame("Graphique note praticien",chart1);
+            frame.pack();
+            frame.setLocation(350,200);
+            frame.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(frmAccueilDashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_lblGraphNoteMouseClicked
+
+    private void lblGraph2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGraph2MouseClicked
+
+       
+    }//GEN-LAST:event_lblGraph2MouseClicked
 
     /**
      * @param args the command line arguments
@@ -190,10 +262,13 @@ public class frmAccueilDashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnGraphNote;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel lblTest;
-    private javax.swing.JTextField txtNote;
+    private javax.swing.JLabel lblAccueil;
+    private javax.swing.JLabel lblGraph2;
+    private javax.swing.JLabel lblGraphNote;
+    private javax.swing.JLabel lblText1;
+    private javax.swing.JLabel lblText3;
     // End of variables declaration//GEN-END:variables
 }
