@@ -390,7 +390,7 @@ public class FonctionsMetier implements IMetier
         HashMap<Integer,String[]> datas = new HashMap();
         try {
             maCnx = ConnexionBdd.getCnx();
-            ps = maCnx.prepareStatement("SELECT specialite.nom, COUNT(praticien.nom) FROM specialite, praticien, posseder where posseder.pra_num=praticien.id and posseder.spe_code=specialite.id GROUP BY specialite.nom");
+            ps = maCnx.prepareStatement("SELECT specialite.nom, COUNT(specialite.nom) , specialite.nom FROM specialite, praticien, posseder where posseder.pra_num=praticien.id and posseder.spe_code=specialite.id  GROUP BY specialite.nom");
             rs = ps.executeQuery();
             int cpt = 1;
             while(rs.next())
