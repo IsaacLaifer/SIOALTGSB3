@@ -23,7 +23,7 @@ public class ConnexionBdd
             String chaine = "com.mysql.jdbc.Driver";
             Class.forName(chaine);
             
-            cnx = DriverManager.getConnection("jdbc:mysql://localhost/testfoujol?serverTimezone="
+            cnx = DriverManager.getConnection("jdbc:mysql://localhost/bdd_projet?serverTimezone="
                     + TimeZone.getDefault().getID(), "root", "root");
         } 
         catch (ClassNotFoundException ex) 

@@ -86,6 +86,9 @@ public class frmAccueil extends javax.swing.JFrame {
 
         lblLogoStats.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/statsLogo.png"))); // NOI18N
         lblLogoStats.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblLogoStatsMouseClicked(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 lblLogoStatsMousePressed(evt);
             }
@@ -251,6 +254,12 @@ public class frmAccueil extends javax.swing.JFrame {
        frmAccueilActiv frmAccActiv = new frmAccueilActiv();
        frmAccActiv.setVisible(true);
     }//GEN-LAST:event_lblLogoActiviteMouseClicked
+
+    private void lblLogoStatsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLogoStatsMouseClicked
+        // TODO add your handling code here:
+        frmAccueilDashboard frmAccStat = new frmAccueilDashboard();
+       frmAccStat.setVisible(true);
+    }//GEN-LAST:event_lblLogoStatsMouseClicked
 
     /**
      * @param args the command line arguments
