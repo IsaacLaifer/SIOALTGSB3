@@ -69,7 +69,7 @@ public class frmAccueilDashboard extends javax.swing.JFrame {
 
         lblText3.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
         lblText3.setForeground(new java.awt.Color(0, 37, 129));
-        lblText3.setText("Graphique 2");
+        lblText3.setText("Graphique spécialitées");
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 37, 129));
@@ -110,19 +110,15 @@ public class frmAccueilDashboard extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(211, 211, 211)
-                        .addComponent(lblGraph2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblText3, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(106, 106, 106))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(222, 222, 222)
-                        .addComponent(lblGraphNote)
-                        .addGap(30, 30, 30)
-                        .addComponent(lblText1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)))
+                .addGap(222, 222, 222)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblGraphNote)
+                    .addComponent(lblGraph2))
+                .addGap(30, 30, 30)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblText1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblText3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 7, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(95, 95, 95))
             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -143,14 +139,14 @@ public class frmAccueilDashboard extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(134, 134, 134)
                                 .addComponent(lblGraphNote)
-                                .addGap(88, 88, 88)
+                                .addGap(86, 86, 86)
                                 .addComponent(lblGraph2))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(144, 144, 144)
                                 .addComponent(lblText1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(116, 116, 116)
                                 .addComponent(lblText3)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(393, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 597, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -223,7 +219,27 @@ public class frmAccueilDashboard extends javax.swing.JFrame {
 
     private void lblGraph2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGraph2MouseClicked
 
-       
+       // HISTOGRAMME
+        
+        DefaultCategoryDataset donnees = new DefaultCategoryDataset();
+        
+        for(Map.Entry valeur : fm.GetDatasGraphique3().entrySet()){
+            double prix = Double.parseDouble(((String[])valeur.getValue())[1].toString());
+            String nomPrat = ((String[])valeur.getValue())[0].toString();
+            String nomSpe = ((String[])valeur.getValue())[2].toString();
+            donnees.setValue(prix, nomPrat, nomSpe);
+        }
+        
+        JFreeChart chart1 = ChartFactory.createBarChart(
+                "Nombres de Praticien  par spécialitées","Nom des Specialite","Nombre de Praticien",
+                donnees,
+                PlotOrientation.VERTICAL,
+                true,true,false);
+        ChartFrame frame = new ChartFrame("Graphique n°3", chart1);
+        frame.pack();
+        frame.setVisible(true);
+        
+        
     }//GEN-LAST:event_lblGraph2MouseClicked
 
     /**

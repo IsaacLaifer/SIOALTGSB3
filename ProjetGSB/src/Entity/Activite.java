@@ -18,7 +18,7 @@ public Activite(int unNumActivite, String unDate, String unLieu , String unTheme
     lieuActivite= unLieu;
     themeActivite = unTheme;
     motifActivite= unMotif;
-}
+} 
 public Activite(int unNum,String unDate, String unLieu, String unTheme){
     numActivite = unNum;
     dateActivite = unDate;

@@ -384,4 +384,23 @@ public class FonctionsMetier implements IMetier
         
         return datas;
     }
+    
+    public HashMap<Integer,String[]> GetDatasGraphique3()
+    {
+        HashMap<Integer,String[]> datas = new HashMap();
+        try {
+            maCnx = ConnexionBdd.getCnx();
+            ps = maCnx.prepareStatement("SELECT specialite.spe_libelle, COUNT(praticien.pra_nom) , specialite.SPE_LIBELLE as t FROM specialite, praticien, posseder where posseder.pra_num=praticien.PRA_NUM and posseder.codeSpe=specialite.SPE_CODE GROUP BY specialite.spe_libelle");
+            rs = ps.executeQuery();
+            int cpt = 1;
+            while(rs.next())
+            {
+                datas.put(cpt,new String[]{rs.getString(1), rs.getString(2),rs.getString(3)});
+                cpt++;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(FonctionsMetier.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return datas;
+    }
 }
