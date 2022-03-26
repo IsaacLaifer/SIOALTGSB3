@@ -51,4 +51,6 @@ public interface IMetier
     public int getLastIdSpecialite();
     
     public int maxcode();
+    
+    public int countNote(int uneNote);
 }

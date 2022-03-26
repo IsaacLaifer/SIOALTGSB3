@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import static javax.swing.UIManager.getString;
@@ -352,6 +353,54 @@ public class FonctionsMetier implements IMetier
         return code;
     }
 
+    @Override
+    public int countNote(int uneNote) {
+        int cNote = 0;
+        try {
+            maCnx=ConnexionBdd.getCnx();
+            ps=maCnx.prepareStatement("SELECT COUNT(p.PRA_NUM) FROM praticien AS p WHERE p.PRA_COEFNOTORIETE >"+uneNote+"");
+            rs=ps.executeQuery();
+            rs.next();
+            cNote=rs.getInt(1);
+        } catch (SQLException ex) {
+            Logger.getLogger(FonctionsMetier.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return cNote;
+    }
+
    
+    public HashMap<String,Integer> GetDatasGraphiqueNote() throws SQLException 
+    {
+        HashMap<String, Integer> datas = new HashMap();
+        
+        maCnx = ConnexionBdd.getCnx();
+        ps = maCnx.prepareStatement("SELECT PRA_NOM , PRA_COEFNOTORIETE FROM praticien ORDER BY praticien.PRA_COEFNOTORIETE ASC");
+            rs = ps.executeQuery();
+            while(rs.next())
+            {
+                datas.put(rs.getString(1), rs.getInt(2));
+            }
+        
+        return datas;
+    }
     
+    public HashMap<Integer,String[]> GetDatasGraphique3()
+    {
+        HashMap<Integer,String[]> datas = new HashMap();
+        try {
+            maCnx = ConnexionBdd.getCnx();
+            ps = maCnx.prepareStatement("SELECT specialite.spe_libelle, COUNT(praticien.pra_nom) , specialite.SPE_LIBELLE as t FROM specialite, praticien, posseder where posseder.pra_num=praticien.PRA_NUM and posseder.codeSpe=specialite.SPE_CODE GROUP BY specialite.spe_libelle");
+            rs = ps.executeQuery();
+            int cpt = 1;
+            while(rs.next())
+            {
+                datas.put(cpt,new String[]{rs.getString(1), rs.getString(2),rs.getString(3)});
+                cpt++;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(FonctionsMetier.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return datas;
+    }
 }
