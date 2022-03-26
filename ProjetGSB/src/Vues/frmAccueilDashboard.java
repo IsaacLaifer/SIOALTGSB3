@@ -225,9 +225,9 @@ public class frmAccueilDashboard extends javax.swing.JFrame {
         
         for(Map.Entry valeur : fm.GetDatasGraphique3().entrySet()){
             double prix = Double.parseDouble(((String[])valeur.getValue())[1].toString());
-            String nomTrader = ((String[])valeur.getValue())[0].toString();
-            String nomAction = ((String[])valeur.getValue())[2].toString();
-            donnees.setValue(prix, nomAction, nomTrader);
+            String nomPrat = ((String[])valeur.getValue())[0].toString();
+            String nomSpe = ((String[])valeur.getValue())[2].toString();
+            donnees.setValue(prix, nomPrat, nomSpe);
         }
         
         JFreeChart chart1 = ChartFactory.createBarChart(
