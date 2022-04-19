@@ -85,7 +85,7 @@
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <Component id="lblAccueilMenu" min="-2" pref="743" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="22" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
@@ -111,7 +111,6 @@
                               <Component id="jLabel4" alignment="0" max="32767" attributes="0"/>
                               <Component id="txtVillePrat" alignment="0" max="32767" attributes="0"/>
                               <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtTypePrat" alignment="0" max="32767" attributes="0"/>
                               <Component id="txtNotePrat" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
@@ -120,9 +119,11 @@
                               <Component id="jLabel10" pref="284" max="32767" attributes="0"/>
                           </Group>
                       </Group>
-                      <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="typeprat" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jLabel11" alignment="0" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -185,7 +186,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="txtAdressePrat" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtTypePrat" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="typeprat" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                   <Component id="lblErreur" min="-2" pref="23" max="-2" attributes="0"/>
@@ -314,8 +315,6 @@
             <Property name="text" type="java.lang.String" value="Adresse du praticien"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtTypePrat">
-        </Component>
         <Component class="javax.swing.JLabel" name="jLabel9">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -407,6 +406,23 @@
             </Property>
             <Property name="text" type="java.lang.String" value="s&#xe9;l&#xe9;ctionner un chiffre du tableau"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="typeprat">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="6">
+                <StringItem index="0" value="Freelance"/>
+                <StringItem index="1" value="Contractuels"/>
+                <StringItem index="2" value="Attaches"/>
+                <StringItem index="3" value="Hospitalier"/>
+                <StringItem index="4" value="Assistant"/>
+                <StringItem index="5" value="Cadre"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>

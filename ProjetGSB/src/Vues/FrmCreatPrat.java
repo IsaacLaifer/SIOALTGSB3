@@ -50,7 +50,6 @@ public class FrmCreatPrat extends javax.swing.JFrame {
         txtCodePostalPrat = new javax.swing.JTextField();
         txtAdressePrat = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        txtTypePrat = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         btnInsererPrat = new javax.swing.JButton();
         lblAccueilMenu = new javax.swing.JLabel();
@@ -59,6 +58,7 @@ public class FrmCreatPrat extends javax.swing.JFrame {
         lblErreur = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
+        typeprat = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(51, 153, 255));
@@ -172,6 +172,8 @@ public class FrmCreatPrat extends javax.swing.JFrame {
         jLabel11.setForeground(new java.awt.Color(0, 37, 129));
         jLabel11.setText("séléctionner un chiffre du tableau");
 
+        typeprat.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Freelance", "Contractuels", "Attaches", "Hospitalier", "Assistant", "Cadre" }));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -191,7 +193,7 @@ public class FrmCreatPrat extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(lblAccueilMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 743, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 22, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -214,14 +216,14 @@ public class FrmCreatPrat extends javax.swing.JFrame {
                             .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txtVillePrat)
                             .addComponent(jLabel6)
-                            .addComponent(txtTypePrat)
                             .addComponent(txtNotePrat))
                         .addGap(26, 26, 26)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                             .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 284, Short.MAX_VALUE)))
-                    .addComponent(jLabel11))
-                .addGap(20, 20, 20))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(typeprat, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -271,7 +273,7 @@ public class FrmCreatPrat extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtAdressePrat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtTypePrat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(typeprat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(47, 47, 47)
                 .addComponent(lblErreur, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -424,7 +426,7 @@ public class FrmCreatPrat extends javax.swing.JFrame {
     private javax.swing.JTextField txtNotePrat;
     private javax.swing.JTextField txtNumPrat;
     private javax.swing.JTextField txtPrenomPrat;
-    private javax.swing.JTextField txtTypePrat;
     private javax.swing.JTextField txtVillePrat;
+    private javax.swing.JComboBox<String> typeprat;
     // End of variables declaration//GEN-END:variables
 }
