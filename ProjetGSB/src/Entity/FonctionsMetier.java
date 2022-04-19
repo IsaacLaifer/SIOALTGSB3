@@ -403,4 +403,20 @@ public class FonctionsMetier implements IMetier
         }
         return datas;
     }
+
+    
+    public int CbTypeCode(String unLib) {
+       int idtypcode = 0;
+        
+          try {
+              maCnx=ConnexionBdd.getCnx();
+              ps=maCnx.prepareStatement("SELECT TYP_CODE FROM type_praticien WHERE TYP_LIBELLE ="+unLib+"");
+              rs=ps.executeQuery();
+              rs.next();
+              idtypcode = rs.getInt(1);
+          } catch (SQLException ex) {
+              Logger.getLogger(FonctionsMetier.class.getName()).log(Level.SEVERE, null, ex);
+          }
+          return idtypcode;    
+    }
 }
