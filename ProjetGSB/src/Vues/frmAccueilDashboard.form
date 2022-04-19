@@ -79,7 +79,7 @@
                       <Component id="lblText1" max="32767" attributes="0"/>
                       <Component id="lblText3" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="24" max="32767" attributes="0"/>
+                  <EmptySpace pref="106" max="32767" attributes="0"/>
                   <Component id="jLabel2" min="-2" pref="7" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
               </Group>
@@ -142,7 +142,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="81" green="25" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Graphique sp&#xe9;cialit&#xe9;es"/>
+            <Property name="text" type="java.lang.String" value="Sp&#xe9;cialit&#xe9;s"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
@@ -165,7 +165,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="81" green="25" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Graphique note praticien"/>
+            <Property name="text" type="java.lang.String" value="Notation praticien"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
