@@ -222,6 +222,7 @@ public class frmAddActivite extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tblPratMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPratMouseClicked
+        //Mettre dans le tableau les activités
         ModelActivite mdlActivite = new ModelActivite();
         mdlActivite.LoadActiviteDateLieu(fm.getAllActivLieuDate());
         tblActivite.setModel(mdlActivite);
@@ -231,6 +232,7 @@ public class frmAddActivite extends javax.swing.JFrame {
         fm = new FonctionsMetier();
         cnx=new ConnexionBdd();
         
+        //Mettre dans le tableau les praticiens
         ModelPraticien mdlPrat = new ModelPraticien();
         mdlPrat.LoadIdNomPrenomPrat(fm.getAllIdNomPrenomPrat());
         tblPrat.setModel(mdlPrat);
@@ -242,6 +244,7 @@ public class frmAddActivite extends javax.swing.JFrame {
         fm = new FonctionsMetier();
         cnx = new ConnexionBdd();
         
+        //Vérifier si le praticien a déjà l'activité séléctioner en récupérant l'id du praticien et l'id de l'activité
         int acNum = Integer.parseInt(tblActivite.getValueAt(tblActivite.getSelectedRow(),0).toString());
         int praNum = Integer.parseInt(tblPrat.getValueAt(tblPrat.getSelectedRow(),0).toString());
          ArrayList <Activite> act=fm.VerifierActivite(praNum, acNum);
@@ -268,6 +271,7 @@ public class frmAddActivite extends javax.swing.JFrame {
         fm = new FonctionsMetier();
         cnx = new ConnexionBdd();
         
+        // Insertion de l'activité si le praticien est spécialiste
         int acNum = Integer.parseInt(tblActivite.getValueAt(tblActivite.getSelectedRow(),0).toString());
         int praNum = Integer.parseInt(tblPrat.getValueAt(tblPrat.getSelectedRow(),0).toString());
         int speOn=1;
@@ -279,9 +283,10 @@ public class frmAddActivite extends javax.swing.JFrame {
     }//GEN-LAST:event_txtOuiMouseClicked
 
     private void txtNonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNonMouseClicked
-         fm = new FonctionsMetier();
+        fm = new FonctionsMetier();
         cnx = new ConnexionBdd();
         
+        // Insertion de l'activité si le praticien n'est pas spécialiste
         int acNum = Integer.parseInt(tblActivite.getValueAt(tblActivite.getSelectedRow(),0).toString());
         int praNum = Integer.parseInt(tblPrat.getValueAt(tblPrat.getSelectedRow(),0).toString());
         int speOn=0;

@@ -202,6 +202,7 @@ public class frmModifSpe extends javax.swing.JFrame {
        
         ConnexionBdd cnx = new ConnexionBdd(); 
         fm = new FonctionsMetier();
+        // Afficher les spécialités
         mdlSpe= new ModelSpecialite();
         mdlSpe.LoadDats2Colonnes(fm.getAllSpecialite());
         tblSpe.setModel(mdlSpe);
@@ -216,6 +217,7 @@ public class frmModifSpe extends javax.swing.JFrame {
           int idSpe = Integer.parseInt(tblSpe.getValueAt(tblSpe.getSelectedRow(),0).toString());
           lblErreur.setText("");
           
+          //Mettre le nom de la spécialité cliqué
           String libSpe = tblSpe.getValueAt(tblSpe.getSelectedRow(),1).toString();
           txtLib.setText(libSpe);
     }//GEN-LAST:event_tblSpeMouseClicked
@@ -224,6 +226,7 @@ public class frmModifSpe extends javax.swing.JFrame {
        int idSpe = Integer.parseInt(tblSpe.getValueAt(tblSpe.getSelectedRow(),0).toString());
        String libSpe= txtLib.getText();
        
+       //Vérification des champs
        if (txtLib.getText().compareTo("")==0){
            lblErreur.setText("Entrez un libellé");
                   

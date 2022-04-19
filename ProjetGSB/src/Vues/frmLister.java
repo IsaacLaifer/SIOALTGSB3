@@ -196,10 +196,12 @@ public class frmLister extends javax.swing.JFrame {
        fm = new FonctionsMetier();
        cnx=new ConnexionBdd();    
       
+       //Remplir le tableau des activités
        ModelActivite mdlActivite = new ModelActivite();
        mdlActivite.LoadActiviteDateLieu(fm.getAllActivLieuDate());
        tblList.setModel(mdlActivite);
             
+       //Remplir le tableau des praticiens
        ModelPraticien mdlPrat = new ModelPraticien();
        mdlPrat.LoadIdNomPrenomPrat(fm.getAllIdNomPrenomPrat());
        tblPrat.setModel(mdlPrat);
@@ -211,11 +213,13 @@ public class frmLister extends javax.swing.JFrame {
 
     private void cbIntroItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbIntroItemStateChanged
          if(cbIntro.getSelectedItem().toString()=="Spécialités"){
+            //Mettre le tableau des spécialités quand spécialités est séléctionné
             ModelSpecialite mdlSpe = new ModelSpecialite();
             mdlSpe.LoadNomSpe(fm.getAllNameSpe());
             tblList.setModel(mdlSpe);
        }
         if(cbIntro.getSelectedItem().toString()=="Activités"){
+            //Mettre le tableau des activités quand activités est séléctionné
             ModelActivite mdlActivite = new ModelActivite();
             mdlActivite.LoadActiviteDateLieu(fm.getAllActivLieuDate());
             tblList.setModel(mdlActivite);
@@ -225,12 +229,14 @@ public class frmLister extends javax.swing.JFrame {
     private void tblPratMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPratMouseClicked
         
         if(cbIntro.getSelectedItem().toString()=="Spécialités"){
+            //Avoir les spécialités du praticien séléctionné
             int praNum = Integer.parseInt(tblPrat.getValueAt(tblPrat.getSelectedRow(),0).toString());
             ModelSpecialite mdlSpe = new ModelSpecialite();
             mdlSpe.LoadDatasSpe(fm.getAllSpecialiteByPraNum(praNum));
             tblList.setModel(mdlSpe);
         }
         if(cbIntro.getSelectedItem().toString()=="Activités"){
+            //Avoir les Activités du praticien séléctionné
             int praNum = Integer.parseInt(tblPrat.getValueAt(tblPrat.getSelectedRow(),0).toString());
             ModelActivite mdlActivite = new ModelActivite();
             mdlActivite.LoadActiviteDateLieu(fm.getAllActiviteByPraNum(praNum));

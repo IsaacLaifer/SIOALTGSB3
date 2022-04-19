@@ -153,7 +153,7 @@ public class frmAuthentification extends javax.swing.JFrame {
     }//GEN-LAST:event_txtLoginActionPerformed
 
     private void btnConnexionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConnexionMouseClicked
-        // TODO add your handling code here:
+        // Vérifier si les champs sont remplis 
         if(txtLogin.getText().compareTo("")==0)
         {
             lblErreur.setText("saisir votre login");
@@ -167,6 +167,7 @@ public class frmAuthentification extends javax.swing.JFrame {
             cnx=new ConnexionBdd();
             fm=new FonctionsMetier();
             
+            //Vérifier si il y a un compte avec les identifiants
             Utilisateur unUtilisateur = fm.VerifierIdentifiants(txtLogin.getText(), txtPwd.getText());
             
             if(unUtilisateur !=null)
@@ -188,6 +189,7 @@ public class frmAuthentification extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
 
+        //Temps d'attente avant que la page s'ouvre
         Thread launchForm = new Thread(new Runnable(){
             @Override
             public void run() {
