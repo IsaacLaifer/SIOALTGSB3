@@ -316,9 +316,11 @@ public class FrmCreatPrat extends javax.swing.JFrame {
     }//GEN-LAST:event_txtPrenomPratActionPerformed
 
     private void btnInsererPratMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInsererPratMouseClicked
-        ConnexionBdd cnx = new ConnexionBdd();
+     ConnexionBdd cnx = new ConnexionBdd();
         fm = new FonctionsMetier();
-        
+        String nomSelect = typeprat.getSelectedItem().toString();
+        int idType = fm.CbTypeCode(nomSelect);
+
         if(txtPrenomPrat.getText().compareTo("")==0){
             lblErreur.setText("Entrer un prénom");
         }else if(txtNomPrat.getText().compareTo("")==0){
@@ -331,19 +333,13 @@ public class FrmCreatPrat extends javax.swing.JFrame {
             lblErreur.setText("Entrer la ville");
         }else if(txtNotePrat.getText().compareTo("")==0){
             lblErreur.setText("Entrer la note");
-        }else if(txtTypePrat.getText().compareTo("")==0){
-            lblErreur.setText("Entrer le type");
-        }else if(txtTypePrat.getText().matches(".*\\d.*")){
-            lblErreur.setText("Entrer le chiffre correspondant sans caractère");
         }
-        
         else{
-        String TP = txtTypePrat.getText();
+        
         String N = txtNotePrat.getText();
         double notePrat = Double.parseDouble(N);
-        int typePrat = Integer.parseInt(TP);
         int idLastPrat = fm.getLastIdPraticien();
-        fm.InsererPraticien(idLastPrat,txtNomPrat.getText(),txtPrenomPrat.getText(),txtAdressePrat.getText(),txtCodePostalPrat.getText(),txtVillePrat.getText(),notePrat,typePrat);
+        fm.InsererPraticien(idLastPrat,txtNomPrat.getText(),txtPrenomPrat.getText(),txtAdressePrat.getText(),txtCodePostalPrat.getText(),txtVillePrat.getText(),notePrat,idType);
             
         this.setVisible(false);
         FrmCreatPrat frmCreP = new FrmCreatPrat();
@@ -361,8 +357,7 @@ public class FrmCreatPrat extends javax.swing.JFrame {
     }//GEN-LAST:event_lblAccueilMenuMouseClicked
 
     private void tblTypeCodeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblTypeCodeMouseClicked
-        String typeCode = tblTypeCode.getValueAt(tblTypeCode.getSelectedRow(),0).toString();
-        txtTypePrat.setText(typeCode);
+        
         
     }//GEN-LAST:event_tblTypeCodeMouseClicked
 
