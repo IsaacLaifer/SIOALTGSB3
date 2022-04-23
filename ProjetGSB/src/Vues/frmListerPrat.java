@@ -17,13 +17,13 @@ import javax.swing.ComboBoxModel;
  *
  * @author Admin
  */
-public class frmLister extends javax.swing.JFrame {
+public class frmListerPrat extends javax.swing.JFrame {
 
     FonctionsMetier fm;
     ModelPraticien mdlPraticien;
     ConnexionBdd cnx;
     
-    public frmLister() {
+    public frmListerPrat() {
         initComponents();
     }
 
@@ -48,7 +48,6 @@ public class frmLister extends javax.swing.JFrame {
         lblAccueilMenu = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(755, 800));
         setMinimumSize(new java.awt.Dimension(755, 800));
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -247,8 +246,8 @@ public class frmLister extends javax.swing.JFrame {
 
     private void lblAccueilMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAccueilMenuMouseClicked
         this.setVisible(false);
-        frmAccueilSpe frmAccueilSpe = new frmAccueilSpe();
-        frmAccueilSpe.setVisible(true);
+        frmAccueilPrat frmAccueilPrat = new frmAccueilPrat();
+        frmAccueilPrat.setVisible(true);
     }//GEN-LAST:event_lblAccueilMenuMouseClicked
 
     private void cbIntroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbIntroActionPerformed
@@ -272,20 +271,21 @@ public class frmLister extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frmLister.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmListerPrat.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frmLister.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmListerPrat.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frmLister.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmListerPrat.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frmLister.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmListerPrat.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new frmLister().setVisible(true);
+                new frmListerPrat().setVisible(true);
             }
         });
     }

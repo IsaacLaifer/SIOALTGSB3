@@ -274,8 +274,8 @@ public class frmModifierPraticien extends javax.swing.JFrame {
 
     private void lblAccueilMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAccueilMenuMouseClicked
         this.setVisible(false);
-        frmAccueil frmAcc = new frmAccueil();
-        frmAcc.setVisible(true);
+        frmAccueilPrat frmAccueilPrat = new frmAccueilPrat();
+        frmAccueilPrat.setVisible(true);
     }//GEN-LAST:event_lblAccueilMenuMouseClicked
 
     /**
