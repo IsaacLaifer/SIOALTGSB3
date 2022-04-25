@@ -23,7 +23,7 @@ public class FonctionsMetier implements IMetier
     private PreparedStatement ps;
     private Connection maCnx;
     
-    @Override
+    @Override // Fonction qui permet de vérifier les identifants
     public Utilisateur VerifierIdentifiants(String login, String mdp) {
         Utilisateur u = null;
         try {
@@ -47,7 +47,7 @@ public class FonctionsMetier implements IMetier
         return u;
     }
 
-    @Override
+    @Override // Fonction qui permet d'obtenir la liste des praticiens
     public ArrayList<Praticien> getAllPraticiens() {
         ArrayList<Praticien>mesPraticiens = new ArrayList <Praticien>();
         try {
@@ -68,7 +68,7 @@ public class FonctionsMetier implements IMetier
         return mesPraticiens;
     }
 
-    @Override
+    @Override // Fonction qui permet d'obtenir la liste des spécialités
     public ArrayList<Specialite> getAllSpecialite() {
           ArrayList<Specialite>mesSpecialites = new ArrayList <Specialite>();
         try {
@@ -89,7 +89,7 @@ public class FonctionsMetier implements IMetier
         return mesSpecialites; 
     }
 
-    @Override
+    @Override // Fonction qui permet d'obtenir la liste des activités
     public ArrayList<Activite> getAllActivite() {
         ArrayList<Activite>mesActivites = new ArrayList <Activite>();
         try {
@@ -110,7 +110,7 @@ public class FonctionsMetier implements IMetier
         return mesActivites; 
     }
 
-    @Override
+    @Override // Fonction qui permet d'inserer une activiter
     public void insererSpecialite(int spe_code, String libelle) {
         try {        
             maCnx=ConnexionBdd.getCnx(); //initialiser la requete
@@ -123,7 +123,7 @@ public class FonctionsMetier implements IMetier
     }
 
 
-    @Override
+    @Override // Fonction qui permet d'avoir la liste des spécialités d'un praticien
     public ArrayList<Specialite> getAllSpecialiteByPraNum(int unNum) {
         ArrayList<Specialite>mesSpecialites = new ArrayList<Specialite>();
         try {
@@ -142,7 +142,7 @@ public class FonctionsMetier implements IMetier
         return mesSpecialites;
      }
 
-    @Override
+    @Override // Fonction qui permet d'avoir l'id du dernier praticien et d'ajouter 1 pour avoir celui du nouveau
     public int getLastIdPraticien() {
         int idPrat = 0;
         try {
@@ -158,7 +158,7 @@ public class FonctionsMetier implements IMetier
     }
     
     
-    @Override
+    @Override // Fonction qui permet d'inserer un praticien
     public void InsererPraticien(int num, String nom, String prenom, String adresse, String codePostal, String ville, double note, int typeCode) {
         try {
             maCnx=ConnexionBdd.getCnx();
@@ -170,7 +170,7 @@ public class FonctionsMetier implements IMetier
         }
     }
 
-    @Override
+    @Override // Fonction qui permet d'avoir la liste des type code
     public ArrayList<TypeCode> getAllTypeCode() {
         ArrayList<TypeCode>mesTypeCode = new ArrayList <TypeCode>();
         try {
@@ -190,7 +190,7 @@ public class FonctionsMetier implements IMetier
         return mesTypeCode; 
     }
 
-    @Override
+    @Override // Fonction qui permet de supprimer une spécialité d'un praticien
     public void deleteSpecialitePraticien(int pra_num, int spe_code) {
         try {
             maCnx=ConnexionBdd.getCnx();
@@ -202,7 +202,7 @@ public class FonctionsMetier implements IMetier
         }
     }
 
-    @Override
+    @Override // Fonction qui permet d'avoir la liste des noms des spécialités
     public ArrayList<Specialite> getAllNameSpe() {
         ArrayList<Specialite>mesNomSpecialites = new ArrayList<>();
         try {
@@ -220,7 +220,7 @@ public class FonctionsMetier implements IMetier
         return mesNomSpecialites;
     } 
 
-    @Override
+    @Override // Fonction qui permet d'avoir la liste des activités
     public ArrayList<Activite> getAllActivLieuDate() {
         ArrayList<Activite>mesLieuDateActivite = new ArrayList<>();
         try { 
@@ -238,7 +238,7 @@ public class FonctionsMetier implements IMetier
         return mesLieuDateActivite;
     }
 
-    @Override
+    @Override // Fonction qui permet d'avoir la liste des praticiens ( id , nom , prénom )
     public ArrayList<Praticien> getAllIdNomPrenomPrat() {
         ArrayList<Praticien>mesIdNomPrenomPrat = new ArrayList<>();
         try {
@@ -256,7 +256,7 @@ public class FonctionsMetier implements IMetier
         return mesIdNomPrenomPrat;
     }
 
-    @Override
+    @Override // Fonction qui permet d'avoir la liste des activités d'un praticien
     public ArrayList<Activite> getAllActiviteByPraNum(int unNum) {
         
         ArrayList<Activite>mesActiviteByNum = new ArrayList<>();
@@ -278,7 +278,7 @@ public class FonctionsMetier implements IMetier
         return mesActiviteByNum;
     }
 
-    @Override
+    @Override // Fonction qui permet d'insérer une activité
     public void InsererActivitie(int activNum, int praNumero, int speOn) {
         try {
             maCnx=ConnexionBdd.getCnx(); //initialiser la requete
@@ -289,7 +289,7 @@ public class FonctionsMetier implements IMetier
         }
     }
 
-    @Override
+    @Override // Fonction qui permet de vérifier si un praticien à déjà l'activité
     public ArrayList<Activite> VerifierActivite(int praNum, int acNum) {
          ArrayList<Activite>mesActivites = new ArrayList<>();
         try {
@@ -309,7 +309,7 @@ public class FonctionsMetier implements IMetier
         return mesActivites;
     }
 
-    @Override
+    @Override // Fonction qui permet d'avoir le dernier id des spécialité et faire + 1 pour avoir celui a inserer
     public int getLastIdSpecialite() {
         int idSpe = 0;
         
@@ -325,7 +325,7 @@ public class FonctionsMetier implements IMetier
           return idSpe;        
     }
 
-    @Override
+    @Override // Fonction qui permet de modifier la spécialité
     public void modifSpe(int unId, String unNom) {
         try {
             maCnx=ConnexionBdd.getCnx();
@@ -338,7 +338,7 @@ public class FonctionsMetier implements IMetier
 
     }
 
-    @Override
+    @Override // Fonction qui permet d'avoir le typecode max des praticien
     public int maxcode() {
        int  code = 0;
         try {
@@ -353,7 +353,7 @@ public class FonctionsMetier implements IMetier
         return code;
     }
 
-    @Override
+    @Override // Fonction qui permet de compter le nombre de praticien avec une note supérieur a celui en paramètre
     public int countNote(int uneNote) {
         int cNote = 0;
         try {
@@ -370,6 +370,7 @@ public class FonctionsMetier implements IMetier
     }
 
    
+    // Fonction qui permet d'avoir la liste des praticien avec leurs note
     public HashMap<String,Integer> GetDatasGraphiqueNote() throws SQLException 
     {
         HashMap<String, Integer> datas = new HashMap();
@@ -385,6 +386,7 @@ public class FonctionsMetier implements IMetier
         return datas;
     }
     
+    // Fonction qui permet d'avoir le nombre de praticien par spécialité
     public HashMap<Integer,String[]> GetDatasGraphique3()
     {
         HashMap<Integer,String[]> datas = new HashMap();
@@ -402,5 +404,21 @@ public class FonctionsMetier implements IMetier
             Logger.getLogger(FonctionsMetier.class.getName()).log(Level.SEVERE, null, ex);
         }
         return datas;
+    }
+
+    // Fonction qui permet d'avoir le typecode avec le libellé associé pour le combobox
+    public int getTypeCode(String unLib) {
+       int idtypcode = 0;
+        
+          try {
+              maCnx=ConnexionBdd.getCnx();
+              ps=maCnx.prepareStatement("SELECT TYP_CODE FROM type_praticien WHERE TYP_LIBELLE ='"+unLib+"'"); 
+              rs=ps.executeQuery();
+              rs.next();
+              idtypcode = rs.getInt(1);
+          } catch (SQLException ex) {
+              Logger.getLogger(FonctionsMetier.class.getName()).log(Level.SEVERE, null, ex);
+          }
+          return idtypcode;    
     }
 }

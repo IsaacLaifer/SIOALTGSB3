@@ -50,15 +50,12 @@ public class FrmCreatPrat extends javax.swing.JFrame {
         txtCodePostalPrat = new javax.swing.JTextField();
         txtAdressePrat = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        txtTypePrat = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         btnInsererPrat = new javax.swing.JButton();
         lblAccueilMenu = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblTypeCode = new javax.swing.JTable();
         lblErreur = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
+        cbTypePrat = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(51, 153, 255));
@@ -143,34 +140,15 @@ public class FrmCreatPrat extends javax.swing.JFrame {
             }
         });
 
-        tblTypeCode.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-
-            }
-        ));
-        tblTypeCode.setGridColor(new java.awt.Color(255, 0, 0));
-        tblTypeCode.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tblTypeCodeMouseClicked(evt);
-            }
-        });
-        jScrollPane1.setViewportView(tblTypeCode);
-
         lblErreur.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblErreur.setForeground(new java.awt.Color(255, 0, 0));
         lblErreur.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
-        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(0, 37, 129));
-        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel10.setText("Liste des types codes");
-
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 37, 129));
         jLabel11.setText("séléctionner un chiffre du tableau");
+
+        cbTypePrat.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Freelance", "Contractuels", "Attaches", "Hospitalier", "Assistant", "Cadre" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -191,7 +169,7 @@ public class FrmCreatPrat extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(lblAccueilMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 743, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 22, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -204,24 +182,19 @@ public class FrmCreatPrat extends javax.swing.JFrame {
                         .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
                         .addComponent(txtNumPrat))
                     .addComponent(jLabel8))
-                .addGap(60, 60, 60)
+                .addGap(124, 124, 124)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
-                            .addComponent(txtCodePostalPrat)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtVillePrat)
-                            .addComponent(jLabel6)
-                            .addComponent(txtTypePrat)
-                            .addComponent(txtNotePrat))
-                        .addGap(26, 26, 26)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 284, Short.MAX_VALUE)))
-                    .addComponent(jLabel11))
-                .addGap(20, 20, 20))
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel11)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(cbTypePrat, javax.swing.GroupLayout.Alignment.LEADING, 0, 173, Short.MAX_VALUE)
+                        .addComponent(txtNotePrat, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(txtVillePrat, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(txtCodePostalPrat, javax.swing.GroupLayout.Alignment.LEADING)))
+                .addGap(239, 239, 239))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -235,43 +208,40 @@ public class FrmCreatPrat extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtNumPrat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(55, 55, 55)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtPrenomPrat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtVillePrat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(55, 55, 55)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtNomPrat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtNotePrat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(36, 36, 36)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel9)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel7)
+                        .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtCodePostalPrat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel10))
-                        .addGap(35, 35, 35)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(2, 2, 2)
-                .addComponent(jLabel11)
+                        .addComponent(txtPrenomPrat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(93, 93, 93)
+                                .addComponent(jLabel4))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtCodePostalPrat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtVillePrat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(55, 55, 55)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtNomPrat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtNotePrat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(36, 36, 36)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel9))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel11)
+                .addGap(2, 2, 2)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtAdressePrat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtTypePrat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbTypePrat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(47, 47, 47)
                 .addComponent(lblErreur, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -301,14 +271,13 @@ public class FrmCreatPrat extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // Connexion à la base de donnée + récupérer fonction metiers
         ConnexionBdd cnx = new ConnexionBdd(); 
         fm = new FonctionsMetier();
+        
+        // Récuperer la valeur de l'id du praticien pour l'insertion + la mettre dans le textefield
         int idLastPrat = fm.getLastIdPraticien();
         txtNumPrat.setText(String.valueOf(idLastPrat));
-        
-        mdlTypeCode = new ModelTypeCode();
-        mdlTypeCode.LoadTypeCode(fm.getAllTypeCode());
-        tblTypeCode.setModel(mdlTypeCode);
     }//GEN-LAST:event_formWindowOpened
 
     private void txtPrenomPratActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrenomPratActionPerformed
@@ -319,6 +288,11 @@ public class FrmCreatPrat extends javax.swing.JFrame {
         ConnexionBdd cnx = new ConnexionBdd();
         fm = new FonctionsMetier();
         
+        // Récupérer l'id du typePraticien du combobox avec une requête 
+        String nomSelect = cbTypePrat.getSelectedItem().toString();
+        int idType = fm.getTypeCode(nomSelect);
+
+        // Vérifier si tout les champs sont bien remplis
         if(txtPrenomPrat.getText().compareTo("")==0){
             lblErreur.setText("Entrer un prénom");
         }else if(txtNomPrat.getText().compareTo("")==0){
@@ -331,25 +305,20 @@ public class FrmCreatPrat extends javax.swing.JFrame {
             lblErreur.setText("Entrer la ville");
         }else if(txtNotePrat.getText().compareTo("")==0){
             lblErreur.setText("Entrer la note");
-        }else if(txtTypePrat.getText().compareTo("")==0){
-            lblErreur.setText("Entrer le type");
-        }else if(txtTypePrat.getText().matches(".*\\d.*")){
-            lblErreur.setText("Entrer le chiffre correspondant sans caractère");
         }
-        
         else{
-        String TP = txtTypePrat.getText();
+        
+        // Changement des types des textfield au bon format pour l'import
         String N = txtNotePrat.getText();
         double notePrat = Double.parseDouble(N);
-        int typePrat = Integer.parseInt(TP);
         int idLastPrat = fm.getLastIdPraticien();
-        fm.InsererPraticien(idLastPrat,txtNomPrat.getText(),txtPrenomPrat.getText(),txtAdressePrat.getText(),txtCodePostalPrat.getText(),txtVillePrat.getText(),notePrat,typePrat);
+        fm.InsererPraticien(idLastPrat,txtNomPrat.getText(),txtPrenomPrat.getText(),txtAdressePrat.getText(),txtCodePostalPrat.getText(),txtVillePrat.getText(),notePrat,idType);
             
         this.setVisible(false);
         FrmCreatPrat frmCreP = new FrmCreatPrat();
-        frmCreP.setVisible(true);        }
+        frmCreP.setVisible(true);        
         
-        int maxType = fm.maxcode();
+        }
         
         
     }//GEN-LAST:event_btnInsererPratMouseClicked
@@ -359,12 +328,6 @@ public class FrmCreatPrat extends javax.swing.JFrame {
         frmAccueilPrat frmAccPrat = new frmAccueilPrat();
         frmAccPrat.setVisible(true);
     }//GEN-LAST:event_lblAccueilMenuMouseClicked
-
-    private void tblTypeCodeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblTypeCodeMouseClicked
-        String typeCode = tblTypeCode.getValueAt(tblTypeCode.getSelectedRow(),0).toString();
-        txtTypePrat.setText(typeCode);
-        
-    }//GEN-LAST:event_tblTypeCodeMouseClicked
 
     private void txtAdressePratActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAdressePratActionPerformed
         // TODO add your handling code here:
@@ -407,8 +370,8 @@ public class FrmCreatPrat extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnInsererPrat;
+    private javax.swing.JComboBox<String> cbTypePrat;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -419,17 +382,14 @@ public class FrmCreatPrat extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblAccueilMenu;
     private javax.swing.JLabel lblErreur;
-    private javax.swing.JTable tblTypeCode;
     private javax.swing.JTextField txtAdressePrat;
     private javax.swing.JTextField txtCodePostalPrat;
     private javax.swing.JTextField txtNomPrat;
     private javax.swing.JTextField txtNotePrat;
     private javax.swing.JTextField txtNumPrat;
     private javax.swing.JTextField txtPrenomPrat;
-    private javax.swing.JTextField txtTypePrat;
     private javax.swing.JTextField txtVillePrat;
     // End of variables declaration//GEN-END:variables
 }

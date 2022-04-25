@@ -197,7 +197,8 @@ public class frmCreateSpecialite extends javax.swing.JFrame {
         }else{
             /*INSERT  */ /*
         }; */
-            
+        
+        //Vérifier si les champs sont remplis
         if(txtSpeLib.getText().compareTo("")==0){
             lblErreur.setText("Entrer un libellé");
         }else{
@@ -205,6 +206,8 @@ public class frmCreateSpecialite extends javax.swing.JFrame {
             lblErreur.setText("Spécialité créer");
             
             this.setVisible(false);
+            
+            //Insertion de la spécialité
             frmCreateSpecialite frmCre = new frmCreateSpecialite();
             frmCre.setVisible(true);
             

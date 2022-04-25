@@ -69,7 +69,7 @@ public class frmAccueilDashboard extends javax.swing.JFrame {
 
         lblText3.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
         lblText3.setForeground(new java.awt.Color(0, 37, 129));
-        lblText3.setText("Graphique spécialitées");
+        lblText3.setText("Spécialités");
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 37, 129));
@@ -78,7 +78,7 @@ public class frmAccueilDashboard extends javax.swing.JFrame {
 
         lblText1.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
         lblText1.setForeground(new java.awt.Color(0, 37, 129));
-        lblText1.setText("Graphique note praticien");
+        lblText1.setText("Notation praticien");
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/blackLine.png"))); // NOI18N
@@ -118,7 +118,7 @@ public class frmAccueilDashboard extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lblText1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblText3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 107, Short.MAX_VALUE)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 7, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(95, 95, 95))
             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -187,7 +187,7 @@ public class frmAccueilDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void lblAccueilMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAccueilMouseClicked
-
+        this.setVisible(false);
         frmAccueil frmAcc = new frmAccueil();
         frmAcc.setVisible(true);
     }//GEN-LAST:event_lblAccueilMouseClicked
@@ -231,7 +231,7 @@ public class frmAccueilDashboard extends javax.swing.JFrame {
         }
         
         JFreeChart chart1 = ChartFactory.createBarChart(
-                "Nombres de Praticien  par spécialitées","Nom des Specialite","Nombre de Praticien",
+                "Nombre de Praticiens par Spécialités","Nom des Specialités","Nombre de Praticiens",
                 donnees,
                 PlotOrientation.VERTICAL,
                 true,true,false);

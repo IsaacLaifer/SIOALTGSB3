@@ -39,7 +39,7 @@ public class frmAccueilSpe extends javax.swing.JFrame {
         lblNumLister = new javax.swing.JLabel();
         lblAccueil = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
@@ -185,25 +185,25 @@ public class frmAccueilSpe extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void lblAccueilMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAccueilMouseClicked
-        
+        this.setVisible(false);
         frmAccueil frmAcc = new frmAccueil();
         frmAcc.setVisible(true);
     }//GEN-LAST:event_lblAccueilMouseClicked
 
     private void lblNumInsererMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNumInsererMouseClicked
-        
+        this.setVisible(false);
         frmCreateSpecialite frmCreatSpe = new frmCreateSpecialite();
         frmCreatSpe.setVisible(true);
     }//GEN-LAST:event_lblNumInsererMouseClicked
 
     private void lblNumModifierMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNumModifierMouseClicked
-        
+        this.setVisible(false);
         frmModifSpe frmSpe = new frmModifSpe();
         frmSpe.setVisible(true);
     }//GEN-LAST:event_lblNumModifierMouseClicked
 
     private void lblNumListerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNumListerMouseClicked
-        
+        this.setVisible(false);
         frmLister frmList = new frmLister();
         frmList.setVisible(true);
     }//GEN-LAST:event_lblNumListerMouseClicked

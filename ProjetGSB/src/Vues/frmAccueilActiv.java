@@ -151,19 +151,19 @@ public class frmAccueilActiv extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void lblNumInsererMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNumInsererMouseClicked
-       
+        this.setVisible(false);
         frmAddActivite frmAddActviv = new frmAddActivite();
         frmAddActviv.setVisible(true);
     }//GEN-LAST:event_lblNumInsererMouseClicked
 
     private void lblNumModifierMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNumModifierMouseClicked
-       
-        frmLister frmList = new frmLister();
-        frmList.setVisible(true);
+        this.setVisible(false);
+        frmListerActivite frmListerActivite = new frmListerActivite();
+        frmListerActivite.setVisible(true);
     }//GEN-LAST:event_lblNumModifierMouseClicked
 
     private void lblAccueilMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAccueilMouseClicked
-        
+        this.setVisible(false);
         frmAccueil frmAcc = new frmAccueil();
         frmAcc.setVisible(true);
     }//GEN-LAST:event_lblAccueilMouseClicked

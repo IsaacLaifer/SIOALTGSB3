@@ -218,6 +218,7 @@ public class frmModifierPraticien extends javax.swing.JFrame {
        fm = new FonctionsMetier();
        cnx=new ConnexionBdd();
        
+       //Afficher les praticiens
        mdlPraticien = new ModelPraticien();
        mdlPraticien.LoadDatas(fm.getAllPraticiens());
        tblPraticien.setModel(mdlPraticien);
@@ -227,6 +228,7 @@ public class frmModifierPraticien extends javax.swing.JFrame {
         int praNum = Integer.parseInt(tblPraticien.getValueAt(tblPraticien.getSelectedRow(),0).toString());
         fm = new FonctionsMetier();
         ModelSpecialite mdlSpe = new ModelSpecialite();
+        //Afficher les spécialités du praticien séléctionné
         mdlSpe.LoadDatasSpe(fm.getAllSpecialiteByPraNum(praNum));
         tblSpecialite.setModel(mdlSpe);
     }//GEN-LAST:event_tblPraticienMouseClicked
@@ -235,6 +237,7 @@ public class frmModifierPraticien extends javax.swing.JFrame {
         int speCodeDelete = Integer.parseInt(tblSpecialite.getValueAt(tblSpecialite.getSelectedRow(),0).toString());
         String libDelete = (String) tblSpecialite.getValueAt(tblSpecialite.getSelectedRow(),1);
         int praNum = Integer.parseInt(tblPraticien.getValueAt(tblPraticien.getSelectedRow(),0).toString());
+        // Mettre un message si on es sur de vouloir supprimé
         lblConfirm.setText("Voulez-vous supprimer la spécialité : " +libDelete+" du praticien numéro "+praNum+"?");
         lblOui.setText("OUI");
         lblNon.setText("NON");
@@ -247,6 +250,7 @@ public class frmModifierPraticien extends javax.swing.JFrame {
         int speCodeDelete = Integer.parseInt(tblSpecialite.getValueAt(tblSpecialite.getSelectedRow(),0).toString());
         int praNum = Integer.parseInt(tblPraticien.getValueAt(tblPraticien.getSelectedRow(),0).toString());
         
+        //Supprimer la spécialité séléctionner
         fm.deleteSpecialitePraticien(praNum, speCodeDelete);
         
         this.setVisible(false);
@@ -270,8 +274,8 @@ public class frmModifierPraticien extends javax.swing.JFrame {
 
     private void lblAccueilMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAccueilMenuMouseClicked
         this.setVisible(false);
-        frmAccueil frmAcc = new frmAccueil();
-        frmAcc.setVisible(true);
+        frmAccueilPrat frmAccueilPrat = new frmAccueilPrat();
+        frmAccueilPrat.setVisible(true);
     }//GEN-LAST:event_lblAccueilMenuMouseClicked
 
     /**

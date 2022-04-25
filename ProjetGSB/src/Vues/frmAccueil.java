@@ -238,25 +238,26 @@ public class frmAccueil extends javax.swing.JFrame {
     }//GEN-LAST:event_lblAccueilMenuMouseClicked
 
     private void lblLogoTaskMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLogoTaskMouseClicked
-        
+        this.setVisible(false);
         frmAccueilSpe frmAccSpe = new frmAccueilSpe();
         frmAccSpe.setVisible(true);
     }//GEN-LAST:event_lblLogoTaskMouseClicked
 
     private void lblLogoPraticienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLogoPraticienMouseClicked
-        
+         this.setVisible(false);
         frmAccueilPrat frmAccPrat = new frmAccueilPrat();
         frmAccPrat.setVisible(true);
     }//GEN-LAST:event_lblLogoPraticienMouseClicked
 
     private void lblLogoActiviteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLogoActiviteMouseClicked
-       
+        this.setVisible(false);
        frmAccueilActiv frmAccActiv = new frmAccueilActiv();
        frmAccActiv.setVisible(true);
     }//GEN-LAST:event_lblLogoActiviteMouseClicked
 
     private void lblLogoStatsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLogoStatsMouseClicked
         // TODO add your handling code here:
+         this.setVisible(false);
         frmAccueilDashboard frmAccStat = new frmAccueilDashboard();
        frmAccStat.setVisible(true);
     }//GEN-LAST:event_lblLogoStatsMouseClicked
